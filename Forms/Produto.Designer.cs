@@ -1,4 +1,4 @@
-﻿namespace FlatUI.Forms
+﻿namespace AppEngSoft.Forms
 {
   partial class Produto
   {

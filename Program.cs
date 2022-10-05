@@ -1,4 +1,8 @@
-namespace FlatUI
+using AppEngSoft.Presenters;
+using AppEngSoft.Views;
+using System.Configuration;
+
+namespace AppEngSoft
 {
   internal static class Program
   {
@@ -10,8 +14,17 @@ namespace FlatUI
     {
       // To customize application configuration such as set high DPI settings or default font,
       // see https://aka.ms/applicationconfiguration.
+      /*
       ApplicationConfiguration.Initialize();
-      Application.Run(new Principal());
+      Application.Run(new FormPrincipal());
+      */
+
+      
+      //string stringConexao = ConfigurationManager.ConnectionStrings["MySqlConnectionString"].ConnectionString;
+      ApplicationConfiguration.Initialize();
+      IPrincipalView view = new PrincipalView();
+      new PrincipalPresenter(view, "");
+      Application.Run((Form)view);
     }
   }
 }

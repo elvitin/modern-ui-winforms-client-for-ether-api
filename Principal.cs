@@ -1,22 +1,19 @@
 using System.Runtime.InteropServices;
 
-namespace FlatUI
+namespace AppEngSoft
 {
-  public partial class Principal : Form
+  public partial class FormPrincipal : Form
   {
     private Button CurrentBtn;
-    private Random Rand;
-    private int TmpIndex; //falta iniciar
+    private Button PreviousBtn;
     private Form _ActiveForm;
 
-    public Principal()
+    public FormPrincipal()
     {
       InitializeComponent();
-      Rand = new();
       this.Text = String.Empty;
       this.ControlBox = false;
       BtnCloseChildForm.Visible = false;
-      //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
     }
 
     [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -25,61 +22,37 @@ namespace FlatUI
     [DllImport("user32.DLL", EntryPoint = "SendMessage")]
     private extern static void SendMessage(System.IntPtr hWnd, int vMsg, int wParam, int lParam);
 
-    private Color SelectThemeColor()
+    private void Reset()
     {
-      int index = Rand.Next(ThemeColor.ColorList.Count);
-      while (TmpIndex == index)
-      {
-        index = Rand.Next(ThemeColor.ColorList.Count);
-      }
-      TmpIndex = index;
-      string color = ThemeColor.ColorList[index];
-      return ColorTranslator.FromHtml(color);
+      DisableBtn(CurrentBtn);
+      LabelHeader.Text = "Ether ERP";
+      PreviousBtn = CurrentBtn = null;
+      BtnCloseChildForm.Visible = false;
     }
 
     private void ActivateBtn(object btnSender)
     {
-      if (btnSender != null)
+      if (btnSender != null && CurrentBtn != (Button)btnSender)
       {
-        if (CurrentBtn != (Button)btnSender)
-        {
-          DisableBtn();
-          //Color color = SelectThemeColor();
-          //Color color = outraPressionada;
-          CurrentBtn = (Button)btnSender;
-          CurrentBtn.BackColor = Color.FromArgb(123, 227, 206);
-          CurrentBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(123, 227, 206);
-          BtnCloseChildForm.Visible = true;
-          
-          //this.VendaBtn.FlatAppearance.MouseOverBackColor
-          //CurrentBtn.ForeColor = Color.White;
-          //new System.Drawing.Font("JetBrains Mono", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-          //CurrentBtn.Font = new System.Drawing.Font("JetBrains Mono", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        }
+        PreviousBtn = CurrentBtn;
+        DisableBtn(PreviousBtn);
+        CurrentBtn = (Button)btnSender;
+        CurrentBtn.BackColor = Color.FromArgb(123, 227, 206);
+        CurrentBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(123, 227, 206);
+        BtnCloseChildForm.Visible = true;
       }
     }
 
-    private void DisableBtn()
+    private void DisableBtn(Button btn) //Set normal state button
     {
-      /*
-       * [ ] MUDAR ESSE FOR, GUARDA O ESTADO DO ULTIMO BOTÃO CLICADOS
-       */
-      foreach (Control previousBtn in MenuPanel.Controls)
-      {
-        if (previousBtn.GetType() == typeof(Button))
-        {
-          //211; 246; 239 //Cor Hover
-          previousBtn.BackColor = Color.White; //colocar variaveis globais aqui.
-          ((Button)previousBtn).FlatAppearance.MouseOverBackColor = Color.FromArgb(211, 246, 239);
-          //previousBtn.ForeColor = Color.White;        //colocar variaveis globais aqui.
-          //previousBtn.Font = new System.Drawing.Font("JetBrains Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-        }
-      }
+      if (btn == null) return;
+      btn.BackColor = Color.White;
+      btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(211, 246, 239);
     }
 
     private void OpenChildForm(Form childForm, object btnSender)
     {
-      
+
       if (_ActiveForm != null)
       {
         _ActiveForm.Close();
@@ -89,17 +62,15 @@ namespace FlatUI
       childForm.TopLevel = false; // [ ] Ver oque faz
       childForm.FormBorderStyle = FormBorderStyle.None;
       childForm.Dock = DockStyle.Fill;
-      this.PanelDesktop.Controls.Add(childForm); // [ ] Ver oque faz
+      this.PanelDesktop.Controls.Add(childForm); // Adiciona um formulário como um de seus filhos
       this.PanelDesktop.Tag = childForm; // [ ] Ver oque faz
-      childForm.BringToFront(); // [ ] Ver oque faz
+      childForm.BringToFront(); // Traz para frente
       childForm.Show();
       LabelHeader.Text = childForm.Text;
     }
 
     private void VendaBtn_Click(object sender, EventArgs e)
     {
-
-      //ActivateBtn(sender);
       OpenChildForm(new Forms.Venda(), sender);
     }
 
@@ -110,7 +81,8 @@ namespace FlatUI
 
     private void ClienteBtn_Click(object sender, EventArgs e)
     {
-      ActivateBtn(sender);
+      //ActivateBtn(sender);
+      OpenChildForm(new Forms.Cliente(), sender);
     }
 
     private void VendedoresBtn_Click(object sender, EventArgs e)
@@ -125,13 +97,7 @@ namespace FlatUI
       Reset();
     }
 
-    private void Reset()
-    {
-      DisableBtn();
-      LabelHeader.Text = "Ether ERP";
-      CurrentBtn = null;
-      BtnCloseChildForm.Visible = false;
-    }
+
 
     private void LabelHeader_MouseDown(object sender, MouseEventArgs e)
     {
@@ -146,14 +112,14 @@ namespace FlatUI
 
     private void BtnMaximizeRestore_Click(object sender, EventArgs e)
     {
-      if(WindowState == FormWindowState.Normal)
+      if (WindowState == FormWindowState.Normal)
       {
-        BtnMaximizeRestore.Image = global::FlatUI.Properties.Resources.icons8_restore_down_32;
+        BtnMaximizeRestore.Image = Properties.Resources.icons8_restore_down_32;
         this.WindowState = FormWindowState.Maximized;
-      } 
+      }
       else
       {
-        BtnMaximizeRestore.Image = global::FlatUI.Properties.Resources.icons8_maximize_button_32;
+        BtnMaximizeRestore.Image = Properties.Resources.icons8_maximize_button_32;
         this.WindowState = FormWindowState.Normal;
       }
     }

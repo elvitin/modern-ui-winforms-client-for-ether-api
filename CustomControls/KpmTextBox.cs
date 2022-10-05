@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
 
-namespace FlatUI.CustomControls
+namespace AppEngSoft.CustomControls
 {
   [DefaultEvent("_TextChanged")]
   public partial class KpmTextBox : UserControl
@@ -104,6 +104,8 @@ namespace FlatUI.CustomControls
       set
       {
         TxtBox.Text = value;
+        isPlaceHolder = false;
+        ForeColor = Color.FromArgb(29, 29, 27);
         SetPlaceHolder();
       }
     }
@@ -272,6 +274,7 @@ namespace FlatUI.CustomControls
     protected override void OnResize(EventArgs e)
     {
       base.OnResize(e);
+      this.Invalidate();
       if (this.DesignMode)
         UpdateControlHeight();
     }
@@ -333,6 +336,7 @@ namespace FlatUI.CustomControls
       this.Invalidate();
       SetPlaceHolder();
     }
+
     //Anexar outros eventos aqui.
   }
 }

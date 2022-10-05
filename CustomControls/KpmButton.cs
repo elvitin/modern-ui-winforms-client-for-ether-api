@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
 
-namespace FlatUI.CustomControls
+namespace AppEngSoft.CustomControls
 {
   public partial class KpmButton : Button
   {

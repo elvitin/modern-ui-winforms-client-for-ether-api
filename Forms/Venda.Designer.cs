@@ -1,6 +1,6 @@
-﻿using FlatUI.CustomControls;
+﻿using AppEngSoft.CustomControls;
 
-namespace FlatUI.Forms
+namespace AppEngSoft.Forms
 {
   partial class Venda
   {
@@ -39,10 +39,10 @@ namespace FlatUI.Forms
       this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.TlpActions = new System.Windows.Forms.TableLayoutPanel();
-      this.BtnExcluir = new FlatUI.CustomControls.KpmButton();
-      this.BtnEditar = new FlatUI.CustomControls.KpmButton();
-      this.BtnNovo = new FlatUI.CustomControls.KpmButton();
-      this.BtnProcurar = new FlatUI.CustomControls.KpmButton();
+      this.BtnExcluir = new AppEngSoft.CustomControls.KpmButton();
+      this.BtnEditar = new AppEngSoft.CustomControls.KpmButton();
+      this.BtnNovo = new AppEngSoft.CustomControls.KpmButton();
+      this.BtnProcurar = new AppEngSoft.CustomControls.KpmButton();
       ((System.ComponentModel.ISupportInitialize)(this.LabGrid)).BeginInit();
       this.TlpActions.SuspendLayout();
       this.SuspendLayout();

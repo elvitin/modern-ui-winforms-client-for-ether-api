@@ -1,4 +1,4 @@
-﻿namespace FlatUI.CustomControls
+﻿namespace AppEngSoft.CustomControls
 {
   partial class KpmTextBox
   {

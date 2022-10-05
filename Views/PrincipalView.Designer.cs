@@ -1,6 +1,6 @@
-﻿namespace AppEngSoft
+﻿namespace AppEngSoft.Views
 {
-  partial class FormPrincipal
+  partial class PrincipalView
   {
     /// <summary>
     ///  Required designer variable.
@@ -28,7 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalView));
       this.PanelMenu = new System.Windows.Forms.Panel();
       this.BtnVendedores = new System.Windows.Forms.Button();
       this.BtnCliente = new System.Windows.Forms.Button();
@@ -62,7 +62,7 @@
       this.PanelMenu.Location = new System.Drawing.Point(0, 152);
       this.PanelMenu.Margin = new System.Windows.Forms.Padding(0);
       this.PanelMenu.Name = "PanelMenu";
-      this.PanelMenu.Size = new System.Drawing.Size(239, 421);
+      this.PanelMenu.Size = new System.Drawing.Size(239, 484);
       this.PanelMenu.TabIndex = 0;
       // 
       // BtnVendedores
@@ -87,7 +87,6 @@
       this.BtnVendedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.BtnVendedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnVendedores.UseVisualStyleBackColor = true;
-      this.BtnVendedores.Click += new System.EventHandler(this.VendedoresBtn_Click);
       // 
       // BtnCliente
       // 
@@ -111,7 +110,6 @@
       this.BtnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.BtnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnCliente.UseVisualStyleBackColor = true;
-      this.BtnCliente.Click += new System.EventHandler(this.ClienteBtn_Click);
       // 
       // BtnProduto
       // 
@@ -135,7 +133,6 @@
       this.BtnProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.BtnProduto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnProduto.UseVisualStyleBackColor = true;
-      this.BtnProduto.Click += new System.EventHandler(this.ProdutoBtn_Click);
       // 
       // BtnVenda
       // 
@@ -160,7 +157,6 @@
       this.BtnVenda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.BtnVenda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnVenda.UseVisualStyleBackColor = true;
-      this.BtnVenda.Click += new System.EventHandler(this.VendaBtn_Click);
       // 
       // PanelProfile
       // 
@@ -238,7 +234,6 @@
       this.BtnMinimize.Size = new System.Drawing.Size(38, 38);
       this.BtnMinimize.TabIndex = 4;
       this.BtnMinimize.UseVisualStyleBackColor = true;
-      this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
       // 
       // BtnMaximizeRestore
       // 
@@ -285,7 +280,6 @@
       this.LabelHeader.TabIndex = 0;
       this.LabelHeader.Text = "Ether ERP";
       this.LabelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.LabelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelHeader_MouseDown);
       // 
       // PanelDesktop
       // 
@@ -294,29 +288,29 @@
             | System.Windows.Forms.AnchorStyles.Right)));
       this.PanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
       this.PanelDesktop.ForeColor = System.Drawing.Color.Black;
-      this.PanelDesktop.Location = new System.Drawing.Point(237, 80);
+      this.PanelDesktop.Location = new System.Drawing.Point(239, 80);
       this.PanelDesktop.Margin = new System.Windows.Forms.Padding(0);
       this.PanelDesktop.Name = "PanelDesktop";
       this.PanelDesktop.Padding = new System.Windows.Forms.Padding(20);
-      this.PanelDesktop.Size = new System.Drawing.Size(845, 493);
+      this.PanelDesktop.Size = new System.Drawing.Size(843, 556);
       this.PanelDesktop.TabIndex = 2;
       // 
-      // FormPrincipal
+      // PrincipalView
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-      this.ClientSize = new System.Drawing.Size(1082, 573);
+      this.ClientSize = new System.Drawing.Size(1082, 636);
       this.ControlBox = false;
+      this.Controls.Add(this.PanelDesktop);
       this.Controls.Add(this.PanelProfile);
       this.Controls.Add(this.PanelMenu);
       this.Controls.Add(this.PanelHeader);
-      this.Controls.Add(this.PanelDesktop);
       this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
       this.MinimumSize = new System.Drawing.Size(950, 500);
-      this.Name = "FormPrincipal";
+      this.Name = "PrincipalView";
       this.ShowIcon = false;
       this.ShowInTaskbar = false;
       this.Text = "Ether Solutions";
