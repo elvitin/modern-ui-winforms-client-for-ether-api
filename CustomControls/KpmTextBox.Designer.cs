@@ -43,6 +43,7 @@
       this.TxtBox.Click += new System.EventHandler(this.TxtBox_Click);
       this.TxtBox.TextChanged += new System.EventHandler(this.TxtBox_TextChanged);
       this.TxtBox.Enter += new System.EventHandler(this.TxtBox_Enter);
+      this.TxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBox_KeyDown);
       this.TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBox_KeyPress);
       this.TxtBox.Leave += new System.EventHandler(this.TxtBox_Leave);
       this.TxtBox.MouseEnter += new System.EventHandler(this.TxtBox_MouseEnter);

@@ -337,6 +337,11 @@ namespace AppEngSoft.CustomControls
       SetPlaceHolder();
     }
 
+    private void TxtBox_KeyDown(object sender, KeyEventArgs e)
+    {
+      this.OnKeyDown(e);
+    }
+
     //Anexar outros eventos aqui.
   }
 }

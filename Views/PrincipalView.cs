@@ -25,7 +25,10 @@ namespace AppEngSoft.Views
         ActivateBtn(BtnCliente);
       };
 
-      BtnClose.Click += delegate { };
+      BtnClose.Click += delegate 
+      { 
+        
+      };
     }
 
     [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
