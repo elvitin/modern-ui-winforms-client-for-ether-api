@@ -1,26 +1,47 @@
-﻿namespace AppEngSoft.Models
+﻿using System.ComponentModel;
+
+namespace AppEngSoft.Models
 {
   internal class ClienteModel
   {
-    private uint id;
-    private string nome;
-    private string email;
-    private string fone;
-    private string tipoPessoa;
+    [DisplayName("ID")]
+    public uint Id { get; set; }
 
-    [System.ComponentModel.DisplayName("ID")]
-    public uint Id { get => id; set => id = value; }
+    [DisplayName("Nome")]
+    public string Nome { get; set; }
 
-    [System.ComponentModel.DisplayName("Nome")]
-    public string Nome { get => nome; set => nome = value; }
+    [DisplayName("E-mail")]
+    public string Email { get; set; }
 
-    [System.ComponentModel.DisplayName("E-mail")]
-    public string Email { get => email; set => email = value; }
+    [DisplayName("Telefone")]
+    public string Fone { get; set; }
 
-    [System.ComponentModel.DisplayName("Telefone")]
-    public string Fone { get => fone; set => fone = value; }
+    [DisplayName("Tipo de Pessoa")]
+    public string TipoPessoa { get; set; }
 
-    [System.ComponentModel.DisplayName("Tipo de Pessoa")]
-    public string TipoPessoa { get => tipoPessoa; set => tipoPessoa = value; }
+    [DisplayName("Pessoa Juridica")]
+    [Browsable(false)]
+    public PessoaJuridicaModel Juridica { get; set; }
+
+    [Browsable(false)]
+    [DisplayName("Pessoa Fisica")]
+    public PessoaFisicaModel Fisica { get; set; }
+
+    public ClienteModel()
+    {
+      Juridica = new PessoaJuridicaModel();
+      Fisica = new PessoaFisicaModel();
+    }
+
+    public ClienteModel(uint id, string nome, string email, string fone, string tipoPessoa, PessoaJuridicaModel juridica, PessoaFisicaModel fisica)
+    {
+      Id = id;
+      Nome = nome;
+      Email = email;
+      Fone = fone;
+      TipoPessoa = tipoPessoa;
+      Juridica = juridica;
+      Fisica = fisica;
+    }
   }
 }

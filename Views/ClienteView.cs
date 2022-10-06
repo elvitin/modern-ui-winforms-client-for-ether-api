@@ -10,13 +10,6 @@ namespace AppEngSoft.Views
     public ClienteView()
     {
       InitializeComponent();
-
-      //Transformar em metodo
-      /*
-      PanelCliente.Controls.Remove(PanelDetalhes);
-      PanelCliente.Controls.Add(PanelLista);
-      PanelLista.Dock = DockStyle.Fill;
-      */
       TrocarPainel(PanelDetalhes, PanelLista);
       AssociarEventos();
     }

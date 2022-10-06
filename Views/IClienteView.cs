@@ -18,7 +18,6 @@
     //Eventos
     event EventHandler ProcurarEvento;
     event EventHandler AdicionarEvento;
-    //event EventHandler RemoverEvento;
     event EventHandler EditarEvento;
     event EventHandler DeletarEvento;
     //event EventHandler DeleteAllEvent;

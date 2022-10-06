@@ -35,6 +35,14 @@
 
   <ItemGroup>
     <PackageReference Include="Bunifu.Utils" Version="1.0.6" />
+    <PackageReference Include="MySql.Data" Version="8.0.30" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EtherAPI">
+      <HintPath>..\ProjetoEngenhariaIII\EtherAPI\bin\Release\net6.0-windows\EtherAPI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

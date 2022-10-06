@@ -1,9 +1,6 @@
 ﻿using AppEngSoft.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EtherAPI.Control;
+using Newtonsoft.Json;
 
 namespace AppEngSoft.Repositorios
 {
@@ -17,7 +14,14 @@ namespace AppEngSoft.Repositorios
 
     public void Adicionar(ClienteModel clienteModel)
     {
-      throw new NotImplementedException();
+      ClienteControl clienteControl = new();
+      clienteModel.Id = 0;
+      string clienteSerializado = JsonConvert.SerializeObject(
+        clienteModel,
+        Formatting.Indented,
+        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
+      );
+      clienteControl.Salvar(clienteSerializado);
     }
 
     public void Deletar(uint clienteId)
@@ -27,58 +31,34 @@ namespace AppEngSoft.Repositorios
 
     public void Editar(ClienteModel clienteModel)
     {
-      throw new NotImplementedException();
+      ClienteControl clienteControl = new();
+      string clienteSerializado = JsonConvert.SerializeObject(
+        clienteModel,
+        Formatting.Indented,
+        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
+      );
+      MessageBox.Show("Cliente editado:\n\n" + clienteSerializado);
+      clienteControl.Salvar(clienteSerializado);
     }
 
     public IEnumerable<ClienteModel> ObterPorValor(string valor)
     {
-      uint petId = uint.TryParse(valor, out _) ? Convert.ToUInt32(valor) : 0;
-
-      List<ClienteModel> clientes = new();
-      if (petId == 0)
-      {
-        for (int i = 0; i < 4; i++)
-        {
-          clientes.Add(new()
-          {
-            Id = (uint)i,
-            Email = "tavis@outlook.com",
-            Fone = "18 99681 1971",
-            Nome = "Emilly Rodrigues",
-            TipoPessoa = "Juridica"
-          });
-        }
-      }
-      else
-      {
-        clientes.Add(new()
-        {
-          Id = petId,
-          Email = "taveirinha@outlook.com",
-          Fone = "18 99681 1971",
-          Nome = "Emilly Rodrigues",
-          TipoPessoa = "Juridica"
-        });
-      }
+      ClienteControl clienteControl = new();
+      MessageBox.Show("Obtendo por valor!");
+      string json = clienteControl.ObterPorValor(valor);
+      MessageBox.Show(json);
+      List<ClienteModel> clientes = JsonConvert.DeserializeObject<List<ClienteModel>>(json);
       return clientes;
     }
 
     public IEnumerable<ClienteModel> ObterTodos()
     {
-      //Chamamento da API
-      List<ClienteModel> clientes = new();
 
-      for (int i = 0; i < 100; i++)
-      {
-        clientes.Add(new()
-        {
-          Id = (uint)i,
-          Email = "emillycat@outlook.com",
-          Fone = "18 99681 1971",
-          Nome = "Emilly Rodrigues",
-          TipoPessoa = "Juridica"
-        });
-      }
+      ClienteControl clienteControl = new();
+      
+      string json = clienteControl.ObterTodos();
+      MessageBox.Show(json);
+      List<ClienteModel> clientes = JsonConvert.DeserializeObject<List<ClienteModel>>(json);
       return clientes;
     }
   }

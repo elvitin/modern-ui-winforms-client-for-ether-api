@@ -24,11 +24,6 @@ namespace AppEngSoft.Views
         ExibirClientesView?.Invoke(this, EventArgs.Empty);
         ActivateBtn(BtnCliente);
       };
-
-      BtnClose.Click += delegate 
-      { 
-        
-      };
     }
 
     [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -47,7 +42,7 @@ namespace AppEngSoft.Views
       formularioFilho.BringToFront();
       PanelDesktop.Controls.Add(formularioFilho);
       PanelDesktop.Tag = formularioFilho;
-      LabelHeader.Text = formularioFilho.Text;
+      LabelHeader.Text = formularioFilho.Tag.ToString();
     }
 
     private void ActivateBtn(Button btnSender)
@@ -80,7 +75,11 @@ namespace AppEngSoft.Views
     private void FechaFormularioEmContexto()
     {
       if (FormularioEmContexto != null)
+      {
         FormularioEmContexto.Close();
+        FormularioEmContexto = null;
+      }
+        
     }
     private void BtnCloseChildForm_Click(object sender, EventArgs e)
     {

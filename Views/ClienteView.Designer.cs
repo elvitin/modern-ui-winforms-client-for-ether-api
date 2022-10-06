@@ -42,10 +42,23 @@
       this.BtnNovo = new AppEngSoft.CustomControls.KpmButton();
       this.BtnProcurar = new AppEngSoft.CustomControls.KpmButton();
       this.PanelDetalhes = new System.Windows.Forms.Panel();
-      this.TxtBoxFone = new AppEngSoft.CustomControls.KpmTextBox();
+      this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+      this.TxtBoxID = new AppEngSoft.CustomControls.KpmTextBox();
       this.TxtBoxNome = new AppEngSoft.CustomControls.KpmTextBox();
       this.TxtBoxEmail = new AppEngSoft.CustomControls.KpmTextBox();
-      this.TxtBoxID = new AppEngSoft.CustomControls.KpmTextBox();
+      this.TxtBoxFone = new AppEngSoft.CustomControls.KpmTextBox();
+      this.TlpPesJur = new System.Windows.Forms.TableLayoutPanel();
+      this.TxtBoxCNPJ = new AppEngSoft.CustomControls.KpmTextBox();
+      this.TxtBoxInsMun = new AppEngSoft.CustomControls.KpmTextBox();
+      this.TxtBoxInsEst = new AppEngSoft.CustomControls.KpmTextBox();
+      this.TlpPesFis = new System.Windows.Forms.TableLayoutPanel();
+      this.TxtBoxRG = new AppEngSoft.CustomControls.KpmTextBox();
+      this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+      this.RadioBtnSexoMasculino = new System.Windows.Forms.RadioButton();
+      this.RadioBtnSexoFeminino = new System.Windows.Forms.RadioButton();
+      this.TxtBoxCPF = new AppEngSoft.CustomControls.KpmTextBox();
+      this.RadioBtnPesJur = new System.Windows.Forms.RadioButton();
+      this.RadioBtnPesFis = new System.Windows.Forms.RadioButton();
       this.TlpActionsDetalhes = new System.Windows.Forms.TableLayoutPanel();
       this.BtnSalvar = new AppEngSoft.CustomControls.KpmButton();
       this.BtnCancelar = new AppEngSoft.CustomControls.KpmButton();
@@ -54,6 +67,10 @@
       this.PanelLista.SuspendLayout();
       this.TlpActionsLista.SuspendLayout();
       this.PanelDetalhes.SuspendLayout();
+      this.tableLayoutPanel1.SuspendLayout();
+      this.TlpPesJur.SuspendLayout();
+      this.TlpPesFis.SuspendLayout();
+      this.tableLayoutPanel3.SuspendLayout();
       this.TlpActionsDetalhes.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -156,7 +173,7 @@
       this.TxtBoxProcurar.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
       this.TxtBoxProcurar.PasswordChar = false;
       this.TxtBoxProcurar.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
-      this.TxtBoxProcurar.PlaceHolderText = "";
+      this.TxtBoxProcurar.PlaceHolderText = "Buscar por ID ou Nome";
       this.TxtBoxProcurar.Size = new System.Drawing.Size(1103, 37);
       this.TxtBoxProcurar.TabIndex = 9;
       this.TxtBoxProcurar.Texts = "";
@@ -284,10 +301,11 @@
       // 
       // PanelDetalhes
       // 
-      this.PanelDetalhes.Controls.Add(this.TxtBoxFone);
-      this.PanelDetalhes.Controls.Add(this.TxtBoxNome);
-      this.PanelDetalhes.Controls.Add(this.TxtBoxEmail);
-      this.PanelDetalhes.Controls.Add(this.TxtBoxID);
+      this.PanelDetalhes.Controls.Add(this.tableLayoutPanel1);
+      this.PanelDetalhes.Controls.Add(this.TlpPesJur);
+      this.PanelDetalhes.Controls.Add(this.TlpPesFis);
+      this.PanelDetalhes.Controls.Add(this.RadioBtnPesJur);
+      this.PanelDetalhes.Controls.Add(this.RadioBtnPesFis);
       this.PanelDetalhes.Controls.Add(this.TlpActionsDetalhes);
       this.PanelDetalhes.Location = new System.Drawing.Point(0, 0);
       this.PanelDetalhes.Margin = new System.Windows.Forms.Padding(0);
@@ -295,27 +313,46 @@
       this.PanelDetalhes.Size = new System.Drawing.Size(1125, 475);
       this.PanelDetalhes.TabIndex = 2;
       // 
-      // TxtBoxFone
+      // tableLayoutPanel1
       // 
-      this.TxtBoxFone.BackColor = System.Drawing.SystemColors.Window;
-      this.TxtBoxFone.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-      this.TxtBoxFone.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
-      this.TxtBoxFone.BorderRadius = 5;
-      this.TxtBoxFone.BorderSize = 1;
-      this.TxtBoxFone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      this.TxtBoxFone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.TxtBoxFone.Location = new System.Drawing.Point(45, 166);
-      this.TxtBoxFone.Margin = new System.Windows.Forms.Padding(0);
-      this.TxtBoxFone.Multiline = false;
-      this.TxtBoxFone.Name = "TxtBoxFone";
-      this.TxtBoxFone.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-      this.TxtBoxFone.PasswordChar = false;
-      this.TxtBoxFone.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
-      this.TxtBoxFone.PlaceHolderText = "Fone";
-      this.TxtBoxFone.Size = new System.Drawing.Size(312, 35);
-      this.TxtBoxFone.TabIndex = 14;
-      this.TxtBoxFone.Texts = "";
-      this.TxtBoxFone.UnderlinedStyle = false;
+      this.tableLayoutPanel1.ColumnCount = 1;
+      this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel1.Controls.Add(this.TxtBoxID, 0, 0);
+      this.tableLayoutPanel1.Controls.Add(this.TxtBoxNome, 0, 1);
+      this.tableLayoutPanel1.Controls.Add(this.TxtBoxEmail, 0, 2);
+      this.tableLayoutPanel1.Controls.Add(this.TxtBoxFone, 0, 3);
+      this.tableLayoutPanel1.Location = new System.Drawing.Point(37, 26);
+      this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+      this.tableLayoutPanel1.RowCount = 4;
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(325, 353);
+      this.tableLayoutPanel1.TabIndex = 27;
+      // 
+      // TxtBoxID
+      // 
+      this.TxtBoxID.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+      this.TxtBoxID.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.TxtBoxID.BorderRadius = 5;
+      this.TxtBoxID.BorderSize = 1;
+      this.TxtBoxID.Enabled = false;
+      this.TxtBoxID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.TxtBoxID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.TxtBoxID.Location = new System.Drawing.Point(0, 0);
+      this.TxtBoxID.Margin = new System.Windows.Forms.Padding(0);
+      this.TxtBoxID.Multiline = false;
+      this.TxtBoxID.Name = "TxtBoxID";
+      this.TxtBoxID.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+      this.TxtBoxID.PasswordChar = false;
+      this.TxtBoxID.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
+      this.TxtBoxID.PlaceHolderText = "ID";
+      this.TxtBoxID.Size = new System.Drawing.Size(325, 35);
+      this.TxtBoxID.TabIndex = 10;
+      this.TxtBoxID.Texts = "";
+      this.TxtBoxID.UnderlinedStyle = false;
       // 
       // TxtBoxNome
       // 
@@ -326,7 +363,7 @@
       this.TxtBoxNome.BorderSize = 1;
       this.TxtBoxNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       this.TxtBoxNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.TxtBoxNome.Location = new System.Drawing.Point(45, 102);
+      this.TxtBoxNome.Location = new System.Drawing.Point(0, 88);
       this.TxtBoxNome.Margin = new System.Windows.Forms.Padding(0);
       this.TxtBoxNome.Multiline = false;
       this.TxtBoxNome.Name = "TxtBoxNome";
@@ -334,7 +371,7 @@
       this.TxtBoxNome.PasswordChar = false;
       this.TxtBoxNome.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxNome.PlaceHolderText = "Nome";
-      this.TxtBoxNome.Size = new System.Drawing.Size(312, 35);
+      this.TxtBoxNome.Size = new System.Drawing.Size(325, 35);
       this.TxtBoxNome.TabIndex = 13;
       this.TxtBoxNome.Texts = "";
       this.TxtBoxNome.UnderlinedStyle = false;
@@ -348,7 +385,7 @@
       this.TxtBoxEmail.BorderSize = 1;
       this.TxtBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       this.TxtBoxEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.TxtBoxEmail.Location = new System.Drawing.Point(45, 229);
+      this.TxtBoxEmail.Location = new System.Drawing.Point(0, 176);
       this.TxtBoxEmail.Margin = new System.Windows.Forms.Padding(0);
       this.TxtBoxEmail.Multiline = false;
       this.TxtBoxEmail.Name = "TxtBoxEmail";
@@ -356,33 +393,243 @@
       this.TxtBoxEmail.PasswordChar = false;
       this.TxtBoxEmail.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxEmail.PlaceHolderText = "Email";
-      this.TxtBoxEmail.Size = new System.Drawing.Size(312, 35);
+      this.TxtBoxEmail.Size = new System.Drawing.Size(325, 35);
       this.TxtBoxEmail.TabIndex = 11;
       this.TxtBoxEmail.Texts = "";
       this.TxtBoxEmail.UnderlinedStyle = false;
       // 
-      // TxtBoxID
+      // TxtBoxFone
       // 
-      this.TxtBoxID.BackColor = System.Drawing.SystemColors.Window;
-      this.TxtBoxID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-      this.TxtBoxID.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
-      this.TxtBoxID.BorderRadius = 5;
-      this.TxtBoxID.BorderSize = 1;
-      this.TxtBoxID.Enabled = false;
-      this.TxtBoxID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      this.TxtBoxID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.TxtBoxID.Location = new System.Drawing.Point(45, 35);
-      this.TxtBoxID.Margin = new System.Windows.Forms.Padding(0);
-      this.TxtBoxID.Multiline = false;
-      this.TxtBoxID.Name = "TxtBoxID";
-      this.TxtBoxID.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-      this.TxtBoxID.PasswordChar = false;
-      this.TxtBoxID.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
-      this.TxtBoxID.PlaceHolderText = "ID";
-      this.TxtBoxID.Size = new System.Drawing.Size(312, 35);
-      this.TxtBoxID.TabIndex = 10;
-      this.TxtBoxID.Texts = "";
-      this.TxtBoxID.UnderlinedStyle = false;
+      this.TxtBoxFone.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxFone.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+      this.TxtBoxFone.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.TxtBoxFone.BorderRadius = 5;
+      this.TxtBoxFone.BorderSize = 1;
+      this.TxtBoxFone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.TxtBoxFone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.TxtBoxFone.Location = new System.Drawing.Point(0, 264);
+      this.TxtBoxFone.Margin = new System.Windows.Forms.Padding(0);
+      this.TxtBoxFone.Multiline = false;
+      this.TxtBoxFone.Name = "TxtBoxFone";
+      this.TxtBoxFone.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+      this.TxtBoxFone.PasswordChar = false;
+      this.TxtBoxFone.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
+      this.TxtBoxFone.PlaceHolderText = "Fone";
+      this.TxtBoxFone.Size = new System.Drawing.Size(325, 35);
+      this.TxtBoxFone.TabIndex = 14;
+      this.TxtBoxFone.Texts = "";
+      this.TxtBoxFone.UnderlinedStyle = false;
+      // 
+      // TlpPesJur
+      // 
+      this.TlpPesJur.ColumnCount = 1;
+      this.TlpPesJur.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.TlpPesJur.Controls.Add(this.TxtBoxCNPJ, 0, 0);
+      this.TlpPesJur.Controls.Add(this.TxtBoxInsMun, 0, 1);
+      this.TlpPesJur.Controls.Add(this.TxtBoxInsEst, 0, 2);
+      this.TlpPesJur.Enabled = false;
+      this.TlpPesJur.Location = new System.Drawing.Point(768, 114);
+      this.TlpPesJur.Margin = new System.Windows.Forms.Padding(0);
+      this.TlpPesJur.Name = "TlpPesJur";
+      this.TlpPesJur.RowCount = 3;
+      this.TlpPesJur.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+      this.TlpPesJur.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+      this.TlpPesJur.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+      this.TlpPesJur.Size = new System.Drawing.Size(325, 265);
+      this.TlpPesJur.TabIndex = 26;
+      // 
+      // TxtBoxCNPJ
+      // 
+      this.TxtBoxCNPJ.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxCNPJ.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+      this.TxtBoxCNPJ.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.TxtBoxCNPJ.BorderRadius = 5;
+      this.TxtBoxCNPJ.BorderSize = 1;
+      this.TxtBoxCNPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.TxtBoxCNPJ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.TxtBoxCNPJ.Location = new System.Drawing.Point(0, 0);
+      this.TxtBoxCNPJ.Margin = new System.Windows.Forms.Padding(0);
+      this.TxtBoxCNPJ.Multiline = false;
+      this.TxtBoxCNPJ.Name = "TxtBoxCNPJ";
+      this.TxtBoxCNPJ.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+      this.TxtBoxCNPJ.PasswordChar = false;
+      this.TxtBoxCNPJ.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
+      this.TxtBoxCNPJ.PlaceHolderText = "CNPJ";
+      this.TxtBoxCNPJ.Size = new System.Drawing.Size(325, 35);
+      this.TxtBoxCNPJ.TabIndex = 20;
+      this.TxtBoxCNPJ.Texts = "";
+      this.TxtBoxCNPJ.UnderlinedStyle = false;
+      // 
+      // TxtBoxInsMun
+      // 
+      this.TxtBoxInsMun.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxInsMun.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+      this.TxtBoxInsMun.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.TxtBoxInsMun.BorderRadius = 5;
+      this.TxtBoxInsMun.BorderSize = 1;
+      this.TxtBoxInsMun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.TxtBoxInsMun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.TxtBoxInsMun.Location = new System.Drawing.Point(0, 88);
+      this.TxtBoxInsMun.Margin = new System.Windows.Forms.Padding(0);
+      this.TxtBoxInsMun.Multiline = false;
+      this.TxtBoxInsMun.Name = "TxtBoxInsMun";
+      this.TxtBoxInsMun.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+      this.TxtBoxInsMun.PasswordChar = false;
+      this.TxtBoxInsMun.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
+      this.TxtBoxInsMun.PlaceHolderText = "Inscrição Municipal";
+      this.TxtBoxInsMun.Size = new System.Drawing.Size(325, 35);
+      this.TxtBoxInsMun.TabIndex = 22;
+      this.TxtBoxInsMun.Texts = "";
+      this.TxtBoxInsMun.UnderlinedStyle = false;
+      // 
+      // TxtBoxInsEst
+      // 
+      this.TxtBoxInsEst.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxInsEst.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+      this.TxtBoxInsEst.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.TxtBoxInsEst.BorderRadius = 5;
+      this.TxtBoxInsEst.BorderSize = 1;
+      this.TxtBoxInsEst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.TxtBoxInsEst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.TxtBoxInsEst.Location = new System.Drawing.Point(0, 176);
+      this.TxtBoxInsEst.Margin = new System.Windows.Forms.Padding(0);
+      this.TxtBoxInsEst.Multiline = false;
+      this.TxtBoxInsEst.Name = "TxtBoxInsEst";
+      this.TxtBoxInsEst.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+      this.TxtBoxInsEst.PasswordChar = false;
+      this.TxtBoxInsEst.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
+      this.TxtBoxInsEst.PlaceHolderText = "Inscrição Estadual";
+      this.TxtBoxInsEst.Size = new System.Drawing.Size(325, 35);
+      this.TxtBoxInsEst.TabIndex = 21;
+      this.TxtBoxInsEst.Texts = "";
+      this.TxtBoxInsEst.UnderlinedStyle = false;
+      // 
+      // TlpPesFis
+      // 
+      this.TlpPesFis.ColumnCount = 1;
+      this.TlpPesFis.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.TlpPesFis.Controls.Add(this.TxtBoxRG, 0, 1);
+      this.TlpPesFis.Controls.Add(this.tableLayoutPanel3, 0, 2);
+      this.TlpPesFis.Controls.Add(this.TxtBoxCPF, 0, 0);
+      this.TlpPesFis.Location = new System.Drawing.Point(403, 114);
+      this.TlpPesFis.Margin = new System.Windows.Forms.Padding(0);
+      this.TlpPesFis.Name = "TlpPesFis";
+      this.TlpPesFis.RowCount = 3;
+      this.TlpPesFis.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+      this.TlpPesFis.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+      this.TlpPesFis.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+      this.TlpPesFis.Size = new System.Drawing.Size(325, 265);
+      this.TlpPesFis.TabIndex = 25;
+      // 
+      // TxtBoxRG
+      // 
+      this.TxtBoxRG.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxRG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+      this.TxtBoxRG.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.TxtBoxRG.BorderRadius = 5;
+      this.TxtBoxRG.BorderSize = 1;
+      this.TxtBoxRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.TxtBoxRG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.TxtBoxRG.Location = new System.Drawing.Point(0, 88);
+      this.TxtBoxRG.Margin = new System.Windows.Forms.Padding(0);
+      this.TxtBoxRG.Multiline = false;
+      this.TxtBoxRG.Name = "TxtBoxRG";
+      this.TxtBoxRG.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+      this.TxtBoxRG.PasswordChar = false;
+      this.TxtBoxRG.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
+      this.TxtBoxRG.PlaceHolderText = "RG";
+      this.TxtBoxRG.Size = new System.Drawing.Size(325, 35);
+      this.TxtBoxRG.TabIndex = 18;
+      this.TxtBoxRG.Texts = "";
+      this.TxtBoxRG.UnderlinedStyle = false;
+      // 
+      // tableLayoutPanel3
+      // 
+      this.tableLayoutPanel3.ColumnCount = 2;
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.Controls.Add(this.RadioBtnSexoMasculino, 0, 0);
+      this.tableLayoutPanel3.Controls.Add(this.RadioBtnSexoFeminino, 1, 0);
+      this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 176);
+      this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+      this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+      this.tableLayoutPanel3.RowCount = 1;
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.Size = new System.Drawing.Size(325, 89);
+      this.tableLayoutPanel3.TabIndex = 19;
+      // 
+      // RadioBtnSexoMasculino
+      // 
+      this.RadioBtnSexoMasculino.AutoSize = true;
+      this.RadioBtnSexoMasculino.Checked = true;
+      this.RadioBtnSexoMasculino.Location = new System.Drawing.Point(0, 0);
+      this.RadioBtnSexoMasculino.Margin = new System.Windows.Forms.Padding(0);
+      this.RadioBtnSexoMasculino.Name = "RadioBtnSexoMasculino";
+      this.RadioBtnSexoMasculino.RightToLeft = System.Windows.Forms.RightToLeft.No;
+      this.RadioBtnSexoMasculino.Size = new System.Drawing.Size(121, 26);
+      this.RadioBtnSexoMasculino.TabIndex = 0;
+      this.RadioBtnSexoMasculino.TabStop = true;
+      this.RadioBtnSexoMasculino.Text = "Masculino";
+      this.RadioBtnSexoMasculino.UseVisualStyleBackColor = true;
+      // 
+      // RadioBtnSexoFeminino
+      // 
+      this.RadioBtnSexoFeminino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.RadioBtnSexoFeminino.AutoSize = true;
+      this.RadioBtnSexoFeminino.Location = new System.Drawing.Point(214, 0);
+      this.RadioBtnSexoFeminino.Margin = new System.Windows.Forms.Padding(0);
+      this.RadioBtnSexoFeminino.Name = "RadioBtnSexoFeminino";
+      this.RadioBtnSexoFeminino.Size = new System.Drawing.Size(111, 26);
+      this.RadioBtnSexoFeminino.TabIndex = 1;
+      this.RadioBtnSexoFeminino.Text = "Feminino";
+      this.RadioBtnSexoFeminino.UseVisualStyleBackColor = true;
+      // 
+      // TxtBoxCPF
+      // 
+      this.TxtBoxCPF.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxCPF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+      this.TxtBoxCPF.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.TxtBoxCPF.BorderRadius = 5;
+      this.TxtBoxCPF.BorderSize = 1;
+      this.TxtBoxCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.TxtBoxCPF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.TxtBoxCPF.Location = new System.Drawing.Point(0, 0);
+      this.TxtBoxCPF.Margin = new System.Windows.Forms.Padding(0);
+      this.TxtBoxCPF.Multiline = false;
+      this.TxtBoxCPF.Name = "TxtBoxCPF";
+      this.TxtBoxCPF.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+      this.TxtBoxCPF.PasswordChar = false;
+      this.TxtBoxCPF.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
+      this.TxtBoxCPF.PlaceHolderText = "CPF";
+      this.TxtBoxCPF.Size = new System.Drawing.Size(325, 35);
+      this.TxtBoxCPF.TabIndex = 17;
+      this.TxtBoxCPF.Texts = "";
+      this.TxtBoxCPF.UnderlinedStyle = false;
+      // 
+      // RadioBtnPesJur
+      // 
+      this.RadioBtnPesJur.AutoSize = true;
+      this.RadioBtnPesJur.Location = new System.Drawing.Point(768, 26);
+      this.RadioBtnPesJur.Margin = new System.Windows.Forms.Padding(0);
+      this.RadioBtnPesJur.Name = "RadioBtnPesJur";
+      this.RadioBtnPesJur.Size = new System.Drawing.Size(181, 26);
+      this.RadioBtnPesJur.TabIndex = 24;
+      this.RadioBtnPesJur.Text = "Pessoa Juridica";
+      this.RadioBtnPesJur.UseVisualStyleBackColor = true;
+      // 
+      // RadioBtnPesFis
+      // 
+      this.RadioBtnPesFis.AutoSize = true;
+      this.RadioBtnPesFis.Checked = true;
+      this.RadioBtnPesFis.Location = new System.Drawing.Point(403, 26);
+      this.RadioBtnPesFis.Margin = new System.Windows.Forms.Padding(0);
+      this.RadioBtnPesFis.Name = "RadioBtnPesFis";
+      this.RadioBtnPesFis.Size = new System.Drawing.Size(161, 26);
+      this.RadioBtnPesFis.TabIndex = 23;
+      this.RadioBtnPesFis.TabStop = true;
+      this.RadioBtnPesFis.Text = "Pessoa Física";
+      this.RadioBtnPesFis.UseVisualStyleBackColor = true;
       // 
       // TlpActionsDetalhes
       // 
@@ -415,11 +662,11 @@
       this.BtnSalvar.Font = new System.Drawing.Font("JetBrains Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       this.BtnSalvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
       this.BtnSalvar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.BtnSalvar.Location = new System.Drawing.Point(707, 0);
-      this.BtnSalvar.Margin = new System.Windows.Forms.Padding(145, 0, 145, 0);
+      this.BtnSalvar.Location = new System.Drawing.Point(662, 0);
+      this.BtnSalvar.Margin = new System.Windows.Forms.Padding(100, 0, 100, 0);
       this.BtnSalvar.MaximumSize = new System.Drawing.Size(0, 38);
       this.BtnSalvar.Name = "BtnSalvar";
-      this.BtnSalvar.Size = new System.Drawing.Size(273, 38);
+      this.BtnSalvar.Size = new System.Drawing.Size(363, 38);
       this.BtnSalvar.TabIndex = 4;
       this.BtnSalvar.Text = "Salvar";
       this.BtnSalvar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -440,11 +687,11 @@
       this.BtnCancelar.Font = new System.Drawing.Font("JetBrains Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       this.BtnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
       this.BtnCancelar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.BtnCancelar.Location = new System.Drawing.Point(145, 0);
-      this.BtnCancelar.Margin = new System.Windows.Forms.Padding(145, 0, 145, 0);
+      this.BtnCancelar.Location = new System.Drawing.Point(100, 0);
+      this.BtnCancelar.Margin = new System.Windows.Forms.Padding(100, 0, 100, 0);
       this.BtnCancelar.MaximumSize = new System.Drawing.Size(0, 38);
       this.BtnCancelar.Name = "BtnCancelar";
-      this.BtnCancelar.Size = new System.Drawing.Size(272, 38);
+      this.BtnCancelar.Size = new System.Drawing.Size(362, 38);
       this.BtnCancelar.TabIndex = 6;
       this.BtnCancelar.Text = "Cancelar";
       this.BtnCancelar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -462,12 +709,19 @@
       this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
       this.Name = "ClienteView";
+      this.Tag = "Cliente";
       this.Text = "ClienteView";
       ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).EndInit();
       this.PanelCliente.ResumeLayout(false);
       this.PanelLista.ResumeLayout(false);
       this.TlpActionsLista.ResumeLayout(false);
       this.PanelDetalhes.ResumeLayout(false);
+      this.PanelDetalhes.PerformLayout();
+      this.tableLayoutPanel1.ResumeLayout(false);
+      this.TlpPesJur.ResumeLayout(false);
+      this.TlpPesFis.ResumeLayout(false);
+      this.tableLayoutPanel3.ResumeLayout(false);
+      this.tableLayoutPanel3.PerformLayout();
       this.TlpActionsDetalhes.ResumeLayout(false);
       this.ResumeLayout(false);
 
@@ -491,5 +745,18 @@
         private CustomControls.KpmTextBox TxtBoxNome;
         private CustomControls.KpmTextBox TxtBoxEmail;
         private CustomControls.KpmTextBox TxtBoxID;
+        private CustomControls.KpmTextBox TxtBoxInsMun;
+        private CustomControls.KpmTextBox TxtBoxInsEst;
+        private CustomControls.KpmTextBox TxtBoxCNPJ;
+        private CustomControls.KpmTextBox TxtBoxRG;
+        private CustomControls.KpmTextBox TxtBoxCPF;
+        private RadioButton RadioBtnPesJur;
+        private RadioButton RadioBtnPesFis;
+        private TableLayoutPanel TlpPesJur;
+        private TableLayoutPanel TlpPesFis;
+        private TableLayoutPanel tableLayoutPanel3;
+        private RadioButton RadioBtnSexoMasculino;
+        private RadioButton RadioBtnSexoFeminino;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

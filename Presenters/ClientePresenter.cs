@@ -1,6 +1,7 @@
 ﻿using AppEngSoft.Models;
 using AppEngSoft.Models.Utils;
 using AppEngSoft.Views;
+using EtherAPI.Models.Cliente;
 
 namespace AppEngSoft.Presenters
 {
@@ -35,17 +36,25 @@ namespace AppEngSoft.Presenters
       view.Show();
     }
 
-    
+
 
     private void SalvarCliente(object? sender, EventArgs e)
     {
+      uint id = int.TryParse(view.Id, out _) ? Convert.ToUInt32(view.Id) : 0;
       ClienteModel cliente = new()
       {
-        Id = Convert.ToUInt32(view.Id),
+        Id = id,
         Nome = view.Nome,
         Email = view.Email,
         Fone = view.Fone,
-        TipoPessoa = "F"
+        TipoPessoa = "M",
+        Fisica = new()
+        {
+          Cpf = "41999233816",
+          Rg = "508364929",
+          Sexo = "M",
+          ClienteId = id
+        }
       };
 
       try
@@ -54,11 +63,12 @@ namespace AppEngSoft.Presenters
         if (view.eEdicao)
         {
           MessageBox.Show("Edição");
+          repositorio.Editar(cliente);
           view.Mensagem = "Editado com sucesso!";
         }
         else
         {
-          MessageBox.Show("Adição");
+          repositorio.Adicionar(cliente);
           view.Mensagem = "Registro salvo com sucesso!";
         }
         view.SucessoOperacao = true;
@@ -108,6 +118,7 @@ namespace AppEngSoft.Presenters
     private void AtualizarListaClientes()
     {
       clientes = repositorio.ObterTodos();
+
       ClientesBinding.DataSource = clientes;
     }
 
