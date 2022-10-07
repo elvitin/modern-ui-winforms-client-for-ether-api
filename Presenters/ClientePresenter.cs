@@ -41,28 +41,45 @@ namespace AppEngSoft.Presenters
     private void SalvarCliente(object? sender, EventArgs e)
     {
       uint id = int.TryParse(view.Id, out _) ? Convert.ToUInt32(view.Id) : 0;
+
       ClienteModel cliente = new()
       {
         Id = id,
         Nome = view.Nome,
         Email = view.Email,
         Fone = view.Fone,
-        TipoPessoa = "M",
-        Fisica = new()
-        {
-          Cpf = "41999233816",
-          Rg = "508364929",
-          Sexo = "M",
-          ClienteId = id
-        }
       };
+
+      if (view.ePessoaJuridica)
+      {
+        cliente.TipoPessoa = "J";
+        cliente.Fisica = null;
+        cliente.Juridica = new()
+        {
+          ClienteId = id,
+          Cnpj = view.CNPJ,
+          InscEstadual = view.InscricaoEstadual,
+          InscMunicipal = view.InscricaoMunicipal
+        };
+      }
+      else
+      {
+        cliente.TipoPessoa = "F";
+        cliente.Juridica = null;
+        cliente.Fisica = new()
+        {
+          ClienteId = id,
+          Cpf = view.CPF,
+          Rg = view.RG,
+          Sexo = view.eFeminino ? "F" : "M"
+        };
+      }
 
       try
       {
         new ModelValidacao().Validar(cliente);
         if (view.eEdicao)
         {
-          MessageBox.Show("Edição");
           repositorio.Editar(cliente);
           view.Mensagem = "Editado com sucesso!";
         }
@@ -89,14 +106,35 @@ namespace AppEngSoft.Presenters
 
     private void DeletarClienteSelecionado(object? sender, EventArgs e)
     {
-      view.Mensagem = "Deletado com sucesso!";
-      AtualizarListaClientes();
+      try
+      {
+        ClienteModel cliente = (ClienteModel)ClientesBinding.Current;
+        repositorio.Deletar(cliente.Id);
+        view.SucessoOperacao = true;
+        view.Mensagem = "Deletado com sucesso!";
+        AtualizarListaClientes();
+      } 
+      catch (Exception ex)
+      {
+        view.SucessoOperacao = true;
+        view.Mensagem = ex.Message;
+      }
     }
 
     private void LimparCampos()
     {
+      view.ValorBusca = "";
       view.Id = "0";
-      view.Fone = view.Email = view.Nome = "";
+      view.Fone = "";
+      view.Email = "";
+      view.Nome = "";
+      view.CNPJ = "";
+      view.CPF = "";
+      view.RG = "";
+      view.InscricaoEstadual = "";
+      view.InscricaoMunicipal = "";
+      view.ePessoaJuridica = false;
+      view.eFeminino = false;
     }
 
     private void CancelarOperacao(object? sender, EventArgs e)
@@ -106,13 +144,31 @@ namespace AppEngSoft.Presenters
 
     private void CarregarEditarCliente(object? sender, EventArgs e)
     {
+      view.eEdicao = true;
+
       ClienteModel cliente = (ClienteModel)ClientesBinding.Current;
 
       view.Id = cliente.Id.ToString();
       view.Nome = cliente.Nome;
+      view.Email = cliente.Email;
       view.Fone = cliente.Fone;
-      view.Email = cliente.Nome;
-      view.eEdicao = true;
+
+      ClienteModel dados = repositorio.ObterPorValor(cliente.Id.ToString()).FirstOrDefault();
+
+      if (cliente.TipoPessoa == "F")
+      {
+        view.ePessoaJuridica = false;
+        view.RG = dados.Fisica.Rg;
+        view.CPF = dados.Fisica.Cpf;
+        view.eFeminino = dados.Fisica.Sexo == "F";
+      }
+      else
+      {
+        view.ePessoaJuridica = true;
+        view.CNPJ = dados.Juridica.Cnpj;
+        view.InscricaoEstadual = dados.Juridica.InscEstadual;
+        view.InscricaoMunicipal = dados.Juridica.InscMunicipal;
+      }
     }
 
     private void AtualizarListaClientes()

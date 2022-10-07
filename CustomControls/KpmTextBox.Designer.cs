@@ -41,6 +41,7 @@
       this.TxtBox.Size = new System.Drawing.Size(230, 18);
       this.TxtBox.TabIndex = 0;
       this.TxtBox.Click += new System.EventHandler(this.TxtBox_Click);
+      this.TxtBox.EnabledChanged += new System.EventHandler(this.TxtBox_EnabledChanged);
       this.TxtBox.TextChanged += new System.EventHandler(this.TxtBox_TextChanged);
       this.TxtBox.Enter += new System.EventHandler(this.TxtBox_Enter);
       this.TxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBox_KeyDown);

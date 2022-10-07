@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using AppEngSoft.CustomControls;
+using System.Security.Cryptography;
 
 namespace AppEngSoft.Views
 {
@@ -7,25 +8,64 @@ namespace AppEngSoft.Views
     private static ClienteView instancia;
     private string mensagem;
     private bool isEdicao;
+    private bool _eFeminino;
+    private bool _ePessoaJuridica;
+
     public ClienteView()
     {
       InitializeComponent();
       TrocarPainel(PanelDetalhes, PanelLista);
       AssociarEventos();
+
+      ePessoaJuridica = false;
+      eFeminino = false;
     }
 
-    
 
     public string Id { get => TxtBoxID.Texts; set => TxtBoxID.Texts = value; }
     public string Nome { get => TxtBoxNome.Texts; set => TxtBoxNome.Texts = value; }
     public string Email { get => TxtBoxEmail.Texts; set => TxtBoxEmail.Texts = value; }
     public string Fone { get => TxtBoxFone.Texts; set => TxtBoxFone.Texts = value; }
-    public string Mensagem { get => mensagem; set => mensagem = value; }
-    public bool eEdicao { get => isEdicao; set => isEdicao = value; }
-    public bool SucessoOperacao { get; set; }
-    public string ValorBusca { get => TxtBoxProcurar.Texts; set => TxtBoxProcurar.Texts = value; }
 
-    //public string TipoPessoa { get => ; set => TxtBoxID.Texts = value; }
+    public string CNPJ { get => TxtBoxCNPJ.Texts; set => TxtBoxCNPJ.Texts = value; }
+    public string InscricaoEstadual { get => TxtBoxInsEst.Texts; set => TxtBoxInsEst.Texts = value; }
+    public string InscricaoMunicipal { get => TxtBoxInsMun.Texts; set => TxtBoxInsMun.Texts = value; }
+
+    public string CPF { get => TxtBoxCPF.Texts; set => TxtBoxCPF.Texts = value; }
+    public string RG { get => TxtBoxRG.Texts; set => TxtBoxRG.Texts = value; }
+
+    public string ValorBusca { get => TxtBoxProcurar.Texts; set => TxtBoxProcurar.Texts = value; }
+    public string Mensagem { get => mensagem; set => mensagem = value; }
+
+    public bool eEdicao { get => isEdicao; set => isEdicao = value; }
+
+    public bool SucessoOperacao { get; set; }
+
+    public bool eFeminino
+    {
+      get => _eFeminino;
+      set
+      {
+        _eFeminino = value;
+        RadioBtnSexoFeminino.Checked = value;
+        RadioBtnSexoMasculino.Checked = !value;
+      }
+    }
+
+    public bool ePessoaJuridica
+    {
+      get => _ePessoaJuridica;
+      set
+      {
+        _ePessoaJuridica = value;
+
+        TlpPesJur.Enabled = value;
+        TlpPesFis.Enabled = !value;
+
+        RadioBtnPesJur.Checked = value;
+        RadioBtnPesFis.Checked = !value;
+      }
+    }
 
     public event EventHandler ProcurarEvento;
     public event EventHandler AdicionarEvento;
@@ -36,9 +76,25 @@ namespace AppEngSoft.Views
 
     private void AssociarEventos()
     {
-      BtnEditar.Click += delegate 
+      RadioBtnPesJur.CheckedChanged += delegate
       {
-        //Transformar em metodo
+        if (ePessoaJuridica != RadioBtnPesJur.Checked)
+        {
+          ePessoaJuridica = !ePessoaJuridica;
+        }
+      };
+
+      RadioBtnSexoFeminino.CheckedChanged += delegate
+      {
+        if (eFeminino != RadioBtnSexoFeminino.Checked)
+          eFeminino = !eFeminino;
+      };
+
+      BtnEditar.Click += delegate
+      {
+        //Desativa troca de tipo pessoa (Isso é regra de negocio, tem que remover daqui)
+        //RadioBtnPesFis.Enabled = RadioBtnPesJur.Enabled = false;
+        PanelTipoPessoa.Enabled = false;
         EditarEvento?.Invoke(this, EventArgs.Empty);
         TrocarPainel(PanelLista, PanelDetalhes);
       };
@@ -49,9 +105,9 @@ namespace AppEngSoft.Views
         TrocarPainel(PanelDetalhes, PanelLista);
       };
 
-      BtnExcluir.Click += delegate 
+      BtnExcluir.Click += delegate
       {
-        DialogResult result = MessageBox.Show("Você realmente quer deletar o registro?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        DialogResult result = MessageBox.Show("Você realmente quer deletar o registro?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         if (result == DialogResult.Yes)
         {
           DeletarEvento?.Invoke(this, EventArgs.Empty);
@@ -69,6 +125,9 @@ namespace AppEngSoft.Views
 
       BtnNovo.Click += delegate
       {
+        //Ativa troca de tipo pessoa (Isso é regra de negocio, tem que remover daqui)
+        PanelTipoPessoa.Enabled = true;
+        ePessoaJuridica = false;
         AdicionarEvento?.Invoke(this, EventArgs.Empty);
         TrocarPainel(PanelLista, PanelDetalhes);
       };
@@ -77,7 +136,7 @@ namespace AppEngSoft.Views
       {
         if (e.KeyCode == Keys.Enter)
         {
-          //retira som do Enter
+          //********* retira som do Enter ao buscar um registro*********
           //e.Handled = true;
           e.SuppressKeyPress = true;
 
@@ -85,7 +144,10 @@ namespace AppEngSoft.Views
         }
       };
 
-      BtnProcurar.Click += delegate { ProcurarEvento?.Invoke(this, EventArgs.Empty); };
+      BtnProcurar.Click += delegate
+      {
+        ProcurarEvento?.Invoke(this, EventArgs.Empty);
+      };
     }
 
     private void TrocarPainel(Panel atual, Panel novo)
@@ -94,6 +156,7 @@ namespace AppEngSoft.Views
       PanelCliente.Controls.Add(novo);
       novo.Dock = DockStyle.Fill;
     }
+
     public static ClienteView ObterInstancia()
     {
       return instancia == null || instancia.IsDisposed ? new ClienteView() : instancia;

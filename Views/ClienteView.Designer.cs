@@ -28,10 +28,10 @@
     /// </summary>
     private void InitializeComponent()
     {
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
       this.DgvClientes = new System.Windows.Forms.DataGridView();
       this.PanelCliente = new System.Windows.Forms.Panel();
       this.PanelLista = new System.Windows.Forms.Panel();
@@ -42,7 +42,7 @@
       this.BtnNovo = new AppEngSoft.CustomControls.KpmButton();
       this.BtnProcurar = new AppEngSoft.CustomControls.KpmButton();
       this.PanelDetalhes = new System.Windows.Forms.Panel();
-      this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+      this.TlpCliente = new System.Windows.Forms.TableLayoutPanel();
       this.TxtBoxID = new AppEngSoft.CustomControls.KpmTextBox();
       this.TxtBoxNome = new AppEngSoft.CustomControls.KpmTextBox();
       this.TxtBoxEmail = new AppEngSoft.CustomControls.KpmTextBox();
@@ -53,7 +53,7 @@
       this.TxtBoxInsEst = new AppEngSoft.CustomControls.KpmTextBox();
       this.TlpPesFis = new System.Windows.Forms.TableLayoutPanel();
       this.TxtBoxRG = new AppEngSoft.CustomControls.KpmTextBox();
-      this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+      this.TlpSexo = new System.Windows.Forms.TableLayoutPanel();
       this.RadioBtnSexoMasculino = new System.Windows.Forms.RadioButton();
       this.RadioBtnSexoFeminino = new System.Windows.Forms.RadioButton();
       this.TxtBoxCPF = new AppEngSoft.CustomControls.KpmTextBox();
@@ -62,16 +62,18 @@
       this.TlpActionsDetalhes = new System.Windows.Forms.TableLayoutPanel();
       this.BtnSalvar = new AppEngSoft.CustomControls.KpmButton();
       this.BtnCancelar = new AppEngSoft.CustomControls.KpmButton();
+      this.PanelTipoPessoa = new System.Windows.Forms.Panel();
       ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
       this.PanelCliente.SuspendLayout();
       this.PanelLista.SuspendLayout();
       this.TlpActionsLista.SuspendLayout();
       this.PanelDetalhes.SuspendLayout();
-      this.tableLayoutPanel1.SuspendLayout();
+      this.TlpCliente.SuspendLayout();
       this.TlpPesJur.SuspendLayout();
       this.TlpPesFis.SuspendLayout();
-      this.tableLayoutPanel3.SuspendLayout();
+      this.TlpSexo.SuspendLayout();
       this.TlpActionsDetalhes.SuspendLayout();
+      this.PanelTipoPessoa.SuspendLayout();
       this.SuspendLayout();
       // 
       // DgvClientes
@@ -79,12 +81,12 @@
       this.DgvClientes.AllowUserToAddRows = false;
       this.DgvClientes.AllowUserToDeleteRows = false;
       this.DgvClientes.AllowUserToResizeRows = false;
-      dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("JetBrains Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(237)))), ((int)(((byte)(223)))));
-      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.DgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+      dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+      dataGridViewCellStyle17.Font = new System.Drawing.Font("JetBrains Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(237)))), ((int)(((byte)(223)))));
+      dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.DgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
       this.DgvClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -93,23 +95,23 @@
       this.DgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.DgvClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
       this.DgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
-      dataGridViewCellStyle2.Font = new System.Drawing.Font("JetBrains Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
-      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.DgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+      dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
+      dataGridViewCellStyle18.Font = new System.Drawing.Font("JetBrains Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+      dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
+      dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.DgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
       this.DgvClientes.ColumnHeadersHeight = 50;
-      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-      dataGridViewCellStyle3.Font = new System.Drawing.Font("JetBrains Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(237)))), ((int)(((byte)(223)))));
-      dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.DgvClientes.DefaultCellStyle = dataGridViewCellStyle3;
+      dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+      dataGridViewCellStyle19.Font = new System.Drawing.Font("JetBrains Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(237)))), ((int)(((byte)(223)))));
+      dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.DgvClientes.DefaultCellStyle = dataGridViewCellStyle19;
       this.DgvClientes.EnableHeadersVisualStyles = false;
       this.DgvClientes.GridColor = System.Drawing.SystemColors.HotTrack;
       this.DgvClientes.Location = new System.Drawing.Point(0, 0);
@@ -118,14 +120,14 @@
       this.DgvClientes.Name = "DgvClientes";
       this.DgvClientes.ReadOnly = true;
       this.DgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-      dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
-      dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.DgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+      dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+      dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
+      dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.DgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
       this.DgvClientes.RowHeadersWidth = 51;
       this.DgvClientes.RowTemplate.Height = 50;
       this.DgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -301,11 +303,10 @@
       // 
       // PanelDetalhes
       // 
-      this.PanelDetalhes.Controls.Add(this.tableLayoutPanel1);
+      this.PanelDetalhes.Controls.Add(this.PanelTipoPessoa);
+      this.PanelDetalhes.Controls.Add(this.TlpCliente);
       this.PanelDetalhes.Controls.Add(this.TlpPesJur);
       this.PanelDetalhes.Controls.Add(this.TlpPesFis);
-      this.PanelDetalhes.Controls.Add(this.RadioBtnPesJur);
-      this.PanelDetalhes.Controls.Add(this.RadioBtnPesFis);
       this.PanelDetalhes.Controls.Add(this.TlpActionsDetalhes);
       this.PanelDetalhes.Location = new System.Drawing.Point(0, 0);
       this.PanelDetalhes.Margin = new System.Windows.Forms.Padding(0);
@@ -313,27 +314,28 @@
       this.PanelDetalhes.Size = new System.Drawing.Size(1125, 475);
       this.PanelDetalhes.TabIndex = 2;
       // 
-      // tableLayoutPanel1
+      // TlpCliente
       // 
-      this.tableLayoutPanel1.ColumnCount = 1;
-      this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel1.Controls.Add(this.TxtBoxID, 0, 0);
-      this.tableLayoutPanel1.Controls.Add(this.TxtBoxNome, 0, 1);
-      this.tableLayoutPanel1.Controls.Add(this.TxtBoxEmail, 0, 2);
-      this.tableLayoutPanel1.Controls.Add(this.TxtBoxFone, 0, 3);
-      this.tableLayoutPanel1.Location = new System.Drawing.Point(37, 26);
-      this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-      this.tableLayoutPanel1.RowCount = 4;
-      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(325, 353);
-      this.tableLayoutPanel1.TabIndex = 27;
+      this.TlpCliente.ColumnCount = 1;
+      this.TlpCliente.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.TlpCliente.Controls.Add(this.TxtBoxID, 0, 0);
+      this.TlpCliente.Controls.Add(this.TxtBoxNome, 0, 1);
+      this.TlpCliente.Controls.Add(this.TxtBoxEmail, 0, 2);
+      this.TlpCliente.Controls.Add(this.TxtBoxFone, 0, 3);
+      this.TlpCliente.Location = new System.Drawing.Point(37, 26);
+      this.TlpCliente.Margin = new System.Windows.Forms.Padding(0);
+      this.TlpCliente.Name = "TlpCliente";
+      this.TlpCliente.RowCount = 4;
+      this.TlpCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.TlpCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.TlpCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.TlpCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.TlpCliente.Size = new System.Drawing.Size(325, 353);
+      this.TlpCliente.TabIndex = 27;
       // 
       // TxtBoxID
       // 
-      this.TxtBoxID.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.TxtBoxID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxID.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxID.BorderRadius = 5;
@@ -440,7 +442,7 @@
       // 
       // TxtBoxCNPJ
       // 
-      this.TxtBoxCNPJ.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxCNPJ.BackColor = System.Drawing.SystemColors.ButtonFace;
       this.TxtBoxCNPJ.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxCNPJ.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxCNPJ.BorderRadius = 5;
@@ -462,7 +464,7 @@
       // 
       // TxtBoxInsMun
       // 
-      this.TxtBoxInsMun.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxInsMun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.TxtBoxInsMun.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxInsMun.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxInsMun.BorderRadius = 5;
@@ -484,7 +486,7 @@
       // 
       // TxtBoxInsEst
       // 
-      this.TxtBoxInsEst.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxInsEst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.TxtBoxInsEst.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxInsEst.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxInsEst.BorderRadius = 5;
@@ -509,7 +511,7 @@
       this.TlpPesFis.ColumnCount = 1;
       this.TlpPesFis.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.TlpPesFis.Controls.Add(this.TxtBoxRG, 0, 1);
-      this.TlpPesFis.Controls.Add(this.tableLayoutPanel3, 0, 2);
+      this.TlpPesFis.Controls.Add(this.TlpSexo, 0, 2);
       this.TlpPesFis.Controls.Add(this.TxtBoxCPF, 0, 0);
       this.TlpPesFis.Location = new System.Drawing.Point(403, 114);
       this.TlpPesFis.Margin = new System.Windows.Forms.Padding(0);
@@ -543,21 +545,21 @@
       this.TxtBoxRG.Texts = "";
       this.TxtBoxRG.UnderlinedStyle = false;
       // 
-      // tableLayoutPanel3
+      // TlpSexo
       // 
-      this.tableLayoutPanel3.ColumnCount = 2;
-      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel3.Controls.Add(this.RadioBtnSexoMasculino, 0, 0);
-      this.tableLayoutPanel3.Controls.Add(this.RadioBtnSexoFeminino, 1, 0);
-      this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 176);
-      this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-      this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-      this.tableLayoutPanel3.RowCount = 1;
-      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel3.Size = new System.Drawing.Size(325, 89);
-      this.tableLayoutPanel3.TabIndex = 19;
+      this.TlpSexo.ColumnCount = 2;
+      this.TlpSexo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.TlpSexo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.TlpSexo.Controls.Add(this.RadioBtnSexoMasculino, 0, 0);
+      this.TlpSexo.Controls.Add(this.RadioBtnSexoFeminino, 1, 0);
+      this.TlpSexo.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TlpSexo.Location = new System.Drawing.Point(0, 176);
+      this.TlpSexo.Margin = new System.Windows.Forms.Padding(0);
+      this.TlpSexo.Name = "TlpSexo";
+      this.TlpSexo.RowCount = 1;
+      this.TlpSexo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.TlpSexo.Size = new System.Drawing.Size(325, 89);
+      this.TlpSexo.TabIndex = 19;
       // 
       // RadioBtnSexoMasculino
       // 
@@ -610,7 +612,7 @@
       // RadioBtnPesJur
       // 
       this.RadioBtnPesJur.AutoSize = true;
-      this.RadioBtnPesJur.Location = new System.Drawing.Point(768, 26);
+      this.RadioBtnPesJur.Location = new System.Drawing.Point(365, 0);
       this.RadioBtnPesJur.Margin = new System.Windows.Forms.Padding(0);
       this.RadioBtnPesJur.Name = "RadioBtnPesJur";
       this.RadioBtnPesJur.Size = new System.Drawing.Size(181, 26);
@@ -622,7 +624,7 @@
       // 
       this.RadioBtnPesFis.AutoSize = true;
       this.RadioBtnPesFis.Checked = true;
-      this.RadioBtnPesFis.Location = new System.Drawing.Point(403, 26);
+      this.RadioBtnPesFis.Location = new System.Drawing.Point(0, 0);
       this.RadioBtnPesFis.Margin = new System.Windows.Forms.Padding(0);
       this.RadioBtnPesFis.Name = "RadioBtnPesFis";
       this.RadioBtnPesFis.Size = new System.Drawing.Size(161, 26);
@@ -697,6 +699,16 @@
       this.BtnCancelar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
       this.BtnCancelar.UseVisualStyleBackColor = false;
       // 
+      // PanelTipoPessoa
+      // 
+      this.PanelTipoPessoa.Controls.Add(this.RadioBtnPesJur);
+      this.PanelTipoPessoa.Controls.Add(this.RadioBtnPesFis);
+      this.PanelTipoPessoa.Location = new System.Drawing.Point(403, 26);
+      this.PanelTipoPessoa.Margin = new System.Windows.Forms.Padding(0);
+      this.PanelTipoPessoa.Name = "PanelTipoPessoa";
+      this.PanelTipoPessoa.Size = new System.Drawing.Size(690, 35);
+      this.PanelTipoPessoa.TabIndex = 29;
+      // 
       // ClienteView
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -716,13 +728,14 @@
       this.PanelLista.ResumeLayout(false);
       this.TlpActionsLista.ResumeLayout(false);
       this.PanelDetalhes.ResumeLayout(false);
-      this.PanelDetalhes.PerformLayout();
-      this.tableLayoutPanel1.ResumeLayout(false);
+      this.TlpCliente.ResumeLayout(false);
       this.TlpPesJur.ResumeLayout(false);
       this.TlpPesFis.ResumeLayout(false);
-      this.tableLayoutPanel3.ResumeLayout(false);
-      this.tableLayoutPanel3.PerformLayout();
+      this.TlpSexo.ResumeLayout(false);
+      this.TlpSexo.PerformLayout();
       this.TlpActionsDetalhes.ResumeLayout(false);
+      this.PanelTipoPessoa.ResumeLayout(false);
+      this.PanelTipoPessoa.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -754,9 +767,10 @@
         private RadioButton RadioBtnPesFis;
         private TableLayoutPanel TlpPesJur;
         private TableLayoutPanel TlpPesFis;
-        private TableLayoutPanel tableLayoutPanel3;
+        private TableLayoutPanel TlpSexo;
         private RadioButton RadioBtnSexoMasculino;
-        private RadioButton RadioBtnSexoFeminino;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel TlpCliente;
+        public RadioButton RadioBtnSexoFeminino;
+        private Panel PanelTipoPessoa;
     }
 }

@@ -36,7 +36,7 @@ namespace AppEngSoft.Models
     public ClienteModel(uint id, string nome, string email, string fone, string tipoPessoa, PessoaJuridicaModel juridica, PessoaFisicaModel fisica)
     {
       Id = id;
-      Nome = nome;
+      Email = nome;
       Email = email;
       Fone = fone;
       TipoPessoa = tipoPessoa;

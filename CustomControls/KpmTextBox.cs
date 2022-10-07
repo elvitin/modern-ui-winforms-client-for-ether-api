@@ -30,6 +30,8 @@ namespace AppEngSoft.CustomControls
       Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
     }
 
+
+
     //Properties
     [Category("Kpm Custom Properties")]
     public Color BorderFocusColor { get => borderFocusColor; set => borderFocusColor = value; }
@@ -65,6 +67,7 @@ namespace AppEngSoft.CustomControls
       {
         base.BackColor = value;
         TxtBox.BackColor = value;
+        this.Invalidate();
       }
     }
 
@@ -342,6 +345,23 @@ namespace AppEngSoft.CustomControls
       this.OnKeyDown(e);
     }
 
+    private void TxtBox_EnabledChanged(object sender, EventArgs e)
+    {
+      if (Enabled)
+      {
+        //MessageBox.Show("Ativo!!!: " + PlaceHolderText);
+        BackColor = Color.White;
+      } 
+      else
+      {
+        //MessageBox.Show("Desativado!!!: " + PlaceHolderText);
+        BackColor = Color.FromArgb(240, 240, 240);
+      }
+    }
+
+
+
+    //BackColor = Color.FromArgb(240, 240, 240);
     //Anexar outros eventos aqui.
   }
 }
