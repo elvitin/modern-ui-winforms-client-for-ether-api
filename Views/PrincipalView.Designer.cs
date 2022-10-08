@@ -34,18 +34,24 @@
       this.BtnCliente = new System.Windows.Forms.Button();
       this.BtnProduto = new System.Windows.Forms.Button();
       this.BtnVenda = new System.Windows.Forms.Button();
-      this.PanelProfile = new System.Windows.Forms.Panel();
-      this.BtnProfile = new System.Windows.Forms.Button();
+      this.PanelPerfil = new System.Windows.Forms.Panel();
+      this.TlpPerfil = new System.Windows.Forms.TableLayoutPanel();
+      this.CircularPicBoxPerfil = new KpmUiKit.CommonControls.KpmCircularPictureBox();
+      this.LinkLabelPerfil = new System.Windows.Forms.LinkLabel();
       this.PanelHeader = new System.Windows.Forms.Panel();
-      this.BtnClose = new System.Windows.Forms.Button();
+      this.TlpPrincipalAcoes = new System.Windows.Forms.TableLayoutPanel();
       this.BtnMinimize = new System.Windows.Forms.Button();
       this.BtnMaximizeRestore = new System.Windows.Forms.Button();
+      this.BtnClose = new System.Windows.Forms.Button();
       this.BtnCloseChildForm = new System.Windows.Forms.Button();
       this.LabelHeader = new System.Windows.Forms.Label();
       this.PanelDesktop = new System.Windows.Forms.Panel();
       this.PanelMenu.SuspendLayout();
-      this.PanelProfile.SuspendLayout();
+      this.PanelPerfil.SuspendLayout();
+      this.TlpPerfil.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.CircularPicBoxPerfil)).BeginInit();
       this.PanelHeader.SuspendLayout();
+      this.TlpPrincipalAcoes.SuspendLayout();
       this.SuspendLayout();
       // 
       // PanelMenu
@@ -60,10 +66,10 @@
       this.PanelMenu.Controls.Add(this.BtnProduto);
       this.PanelMenu.Controls.Add(this.BtnVenda);
       this.PanelMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.PanelMenu.Location = new System.Drawing.Point(0, 207);
+      this.PanelMenu.Location = new System.Drawing.Point(0, 260);
       this.PanelMenu.Margin = new System.Windows.Forms.Padding(0);
       this.PanelMenu.Name = "PanelMenu";
-      this.PanelMenu.Size = new System.Drawing.Size(239, 475);
+      this.PanelMenu.Size = new System.Drawing.Size(239, 440);
       this.PanelMenu.TabIndex = 0;
       // 
       // BtnVendedores
@@ -88,6 +94,7 @@
       this.BtnVendedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.BtnVendedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnVendedores.UseVisualStyleBackColor = true;
+      this.BtnVendedores.Click += new System.EventHandler(this.BtnVendedores_Click);
       // 
       // BtnCliente
       // 
@@ -111,6 +118,7 @@
       this.BtnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.BtnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnCliente.UseVisualStyleBackColor = true;
+      this.BtnCliente.Click += new System.EventHandler(this.BtnCliente_Click);
       // 
       // BtnProduto
       // 
@@ -134,6 +142,7 @@
       this.BtnProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.BtnProduto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnProduto.UseVisualStyleBackColor = true;
+      this.BtnProduto.Click += new System.EventHandler(this.BtnProduto_Click);
       // 
       // BtnVenda
       // 
@@ -159,37 +168,69 @@
       this.BtnVenda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.BtnVenda.UseVisualStyleBackColor = true;
       // 
-      // PanelProfile
+      // PanelPerfil
       // 
-      this.PanelProfile.BackColor = System.Drawing.Color.White;
-      this.PanelProfile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.PanelProfile.Controls.Add(this.BtnProfile);
-      this.PanelProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.PanelProfile.Location = new System.Drawing.Point(0, 0);
-      this.PanelProfile.Margin = new System.Windows.Forms.Padding(0);
-      this.PanelProfile.Name = "PanelProfile";
-      this.PanelProfile.Size = new System.Drawing.Size(239, 209);
-      this.PanelProfile.TabIndex = 0;
+      this.PanelPerfil.BackColor = System.Drawing.Color.White;
+      this.PanelPerfil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.PanelPerfil.Controls.Add(this.TlpPerfil);
+      this.PanelPerfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
+      this.PanelPerfil.Location = new System.Drawing.Point(0, 0);
+      this.PanelPerfil.Margin = new System.Windows.Forms.Padding(0);
+      this.PanelPerfil.Name = "PanelPerfil";
+      this.PanelPerfil.Size = new System.Drawing.Size(239, 262);
+      this.PanelPerfil.TabIndex = 0;
       // 
-      // BtnProfile
+      // TlpPerfil
       // 
-      this.BtnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-      this.BtnProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.BtnProfile.FlatAppearance.BorderSize = 0;
-      this.BtnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.BtnProfile.Font = new System.Drawing.Font("JetBrains Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      this.BtnProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.BtnProfile.Image = global::AppEngSoft.Properties.Resources.male_user_96px2;
-      this.BtnProfile.Location = new System.Drawing.Point(0, 0);
-      this.BtnProfile.Margin = new System.Windows.Forms.Padding(0);
-      this.BtnProfile.Name = "BtnProfile";
-      this.BtnProfile.Size = new System.Drawing.Size(235, 205);
-      this.BtnProfile.TabIndex = 3;
-      this.BtnProfile.Tag = "";
-      this.BtnProfile.Text = "\r\nUser Name";
-      this.BtnProfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-      this.BtnProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-      this.BtnProfile.UseVisualStyleBackColor = true;
+      this.TlpPerfil.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.TlpPerfil.ColumnCount = 1;
+      this.TlpPerfil.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.TlpPerfil.Controls.Add(this.CircularPicBoxPerfil, 0, 0);
+      this.TlpPerfil.Controls.Add(this.LinkLabelPerfil, 0, 1);
+      this.TlpPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TlpPerfil.Location = new System.Drawing.Point(0, 0);
+      this.TlpPerfil.Margin = new System.Windows.Forms.Padding(0);
+      this.TlpPerfil.Name = "TlpPerfil";
+      this.TlpPerfil.RowCount = 2;
+      this.TlpPerfil.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.TlpPerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+      this.TlpPerfil.Size = new System.Drawing.Size(235, 258);
+      this.TlpPerfil.TabIndex = 5;
+      // 
+      // CircularPicBoxPerfil
+      // 
+      this.CircularPicBoxPerfil.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+      this.CircularPicBoxPerfil.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
+      this.CircularPicBoxPerfil.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
+      this.CircularPicBoxPerfil.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+      this.CircularPicBoxPerfil.BorderSize = 0;
+      this.CircularPicBoxPerfil.Dock = System.Windows.Forms.DockStyle.Top;
+      this.CircularPicBoxPerfil.GradientAngle = 0F;
+      this.CircularPicBoxPerfil.Image = global::AppEngSoft.Properties.Resources.victor_profile;
+      this.CircularPicBoxPerfil.Location = new System.Drawing.Point(30, 20);
+      this.CircularPicBoxPerfil.Margin = new System.Windows.Forms.Padding(30, 20, 30, 0);
+      this.CircularPicBoxPerfil.Name = "CircularPicBoxPerfil";
+      this.CircularPicBoxPerfil.Size = new System.Drawing.Size(175, 175);
+      this.CircularPicBoxPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.CircularPicBoxPerfil.TabIndex = 0;
+      this.CircularPicBoxPerfil.TabStop = false;
+      this.CircularPicBoxPerfil.Click += new System.EventHandler(this.CircularPicBoxPerfil_Click);
+      // 
+      // LinkLabelPerfil
+      // 
+      this.LinkLabelPerfil.AutoSize = true;
+      this.LinkLabelPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.LinkLabelPerfil.Font = new System.Drawing.Font("JetBrains Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.LinkLabelPerfil.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+      this.LinkLabelPerfil.Location = new System.Drawing.Point(0, 195);
+      this.LinkLabelPerfil.Margin = new System.Windows.Forms.Padding(0);
+      this.LinkLabelPerfil.Name = "LinkLabelPerfil";
+      this.LinkLabelPerfil.Size = new System.Drawing.Size(235, 63);
+      this.LinkLabelPerfil.TabIndex = 1;
+      this.LinkLabelPerfil.TabStop = true;
+      this.LinkLabelPerfil.Text = "Victor Rodrigues";
+      this.LinkLabelPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.LinkLabelPerfil.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPerfil_LinkClicked);
       // 
       // PanelHeader
       // 
@@ -197,31 +238,35 @@
             | System.Windows.Forms.AnchorStyles.Right)));
       this.PanelHeader.BackColor = System.Drawing.Color.White;
       this.PanelHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.PanelHeader.Controls.Add(this.BtnClose);
-      this.PanelHeader.Controls.Add(this.BtnMinimize);
-      this.PanelHeader.Controls.Add(this.BtnMaximizeRestore);
+      this.PanelHeader.Controls.Add(this.TlpPrincipalAcoes);
       this.PanelHeader.Controls.Add(this.BtnCloseChildForm);
       this.PanelHeader.Controls.Add(this.LabelHeader);
-      this.PanelHeader.Location = new System.Drawing.Point(237, 0);
+      this.PanelHeader.Location = new System.Drawing.Point(232, 0);
       this.PanelHeader.Margin = new System.Windows.Forms.Padding(0);
       this.PanelHeader.Name = "PanelHeader";
-      this.PanelHeader.Size = new System.Drawing.Size(1155, 80);
+      this.PanelHeader.Size = new System.Drawing.Size(1178, 80);
       this.PanelHeader.TabIndex = 0;
       // 
-      // BtnClose
+      // TlpPrincipalAcoes
       // 
-      this.BtnClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
-      this.BtnClose.AutoSize = true;
-      this.BtnClose.FlatAppearance.BorderSize = 0;
-      this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.BtnClose.Image = global::AppEngSoft.Properties.Resources.icons8_close_32;
-      this.BtnClose.Location = new System.Drawing.Point(1113, 0);
-      this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
-      this.BtnClose.Name = "BtnClose";
-      this.BtnClose.Size = new System.Drawing.Size(38, 38);
-      this.BtnClose.TabIndex = 2;
-      this.BtnClose.UseVisualStyleBackColor = true;
-      this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+      this.TlpPrincipalAcoes.AutoSize = true;
+      this.TlpPrincipalAcoes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.TlpPrincipalAcoes.ColumnCount = 3;
+      this.TlpPrincipalAcoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+      this.TlpPrincipalAcoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+      this.TlpPrincipalAcoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+      this.TlpPrincipalAcoes.Controls.Add(this.BtnMinimize, 0, 0);
+      this.TlpPrincipalAcoes.Controls.Add(this.BtnMaximizeRestore, 1, 0);
+      this.TlpPrincipalAcoes.Controls.Add(this.BtnClose, 2, 0);
+      this.TlpPrincipalAcoes.Dock = System.Windows.Forms.DockStyle.Right;
+      this.TlpPrincipalAcoes.Location = new System.Drawing.Point(1056, 0);
+      this.TlpPrincipalAcoes.Margin = new System.Windows.Forms.Padding(0);
+      this.TlpPrincipalAcoes.Name = "TlpPrincipalAcoes";
+      this.TlpPrincipalAcoes.Padding = new System.Windows.Forms.Padding(2);
+      this.TlpPrincipalAcoes.RowCount = 1;
+      this.TlpPrincipalAcoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.TlpPrincipalAcoes.Size = new System.Drawing.Size(118, 76);
+      this.TlpPrincipalAcoes.TabIndex = 0;
       // 
       // BtnMinimize
       // 
@@ -230,10 +275,10 @@
       this.BtnMinimize.FlatAppearance.BorderSize = 0;
       this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnMinimize.Image = global::AppEngSoft.Properties.Resources.icons8_minimize_window_32;
-      this.BtnMinimize.Location = new System.Drawing.Point(1037, 0);
+      this.BtnMinimize.Location = new System.Drawing.Point(2, 2);
       this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
       this.BtnMinimize.Name = "BtnMinimize";
-      this.BtnMinimize.Size = new System.Drawing.Size(38, 38);
+      this.BtnMinimize.Size = new System.Drawing.Size(37, 38);
       this.BtnMinimize.TabIndex = 4;
       this.BtnMinimize.UseVisualStyleBackColor = true;
       this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
@@ -245,13 +290,28 @@
       this.BtnMaximizeRestore.FlatAppearance.BorderSize = 0;
       this.BtnMaximizeRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnMaximizeRestore.Image = global::AppEngSoft.Properties.Resources.icons8_maximize_button_32;
-      this.BtnMaximizeRestore.Location = new System.Drawing.Point(1075, 0);
+      this.BtnMaximizeRestore.Location = new System.Drawing.Point(39, 2);
       this.BtnMaximizeRestore.Margin = new System.Windows.Forms.Padding(0);
       this.BtnMaximizeRestore.Name = "BtnMaximizeRestore";
-      this.BtnMaximizeRestore.Size = new System.Drawing.Size(38, 38);
+      this.BtnMaximizeRestore.Size = new System.Drawing.Size(37, 38);
       this.BtnMaximizeRestore.TabIndex = 3;
       this.BtnMaximizeRestore.UseVisualStyleBackColor = true;
       this.BtnMaximizeRestore.Click += new System.EventHandler(this.BtnMaximizeRestore_Click);
+      // 
+      // BtnClose
+      // 
+      this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.BtnClose.AutoSize = true;
+      this.BtnClose.FlatAppearance.BorderSize = 0;
+      this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.BtnClose.Image = global::AppEngSoft.Properties.Resources.icons8_close_32;
+      this.BtnClose.Location = new System.Drawing.Point(78, 2);
+      this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
+      this.BtnClose.Name = "BtnClose";
+      this.BtnClose.Size = new System.Drawing.Size(38, 38);
+      this.BtnClose.TabIndex = 2;
+      this.BtnClose.UseVisualStyleBackColor = true;
+      this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
       // 
       // BtnCloseChildForm
       // 
@@ -261,7 +321,6 @@
       this.BtnCloseChildForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnCloseChildForm.Image = ((System.Drawing.Image)(resources.GetObject("BtnCloseChildForm.Image")));
       this.BtnCloseChildForm.Location = new System.Drawing.Point(0, 0);
-      this.BtnCloseChildForm.Margin = new System.Windows.Forms.Padding(0);
       this.BtnCloseChildForm.Name = "BtnCloseChildForm";
       this.BtnCloseChildForm.Size = new System.Drawing.Size(63, 76);
       this.BtnCloseChildForm.TabIndex = 1;
@@ -272,6 +331,7 @@
       // LabelHeader
       // 
       this.LabelHeader.BackColor = System.Drawing.Color.White;
+      this.LabelHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.LabelHeader.Dock = System.Windows.Forms.DockStyle.Fill;
       this.LabelHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.LabelHeader.Font = new System.Drawing.Font("JetBrains Mono SemiBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -279,7 +339,7 @@
       this.LabelHeader.Location = new System.Drawing.Point(0, 0);
       this.LabelHeader.Margin = new System.Windows.Forms.Padding(0);
       this.LabelHeader.Name = "LabelHeader";
-      this.LabelHeader.Size = new System.Drawing.Size(1151, 76);
+      this.LabelHeader.Size = new System.Drawing.Size(1174, 76);
       this.LabelHeader.TabIndex = 0;
       this.LabelHeader.Text = "Ether ERP";
       this.LabelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,12 +351,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.PanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-      this.PanelDesktop.ForeColor = System.Drawing.Color.Black;
+      this.PanelDesktop.ForeColor = System.Drawing.Color.IndianRed;
       this.PanelDesktop.Location = new System.Drawing.Point(239, 80);
       this.PanelDesktop.Margin = new System.Windows.Forms.Padding(0);
       this.PanelDesktop.Name = "PanelDesktop";
       this.PanelDesktop.Padding = new System.Windows.Forms.Padding(20);
-      this.PanelDesktop.Size = new System.Drawing.Size(1153, 602);
+      this.PanelDesktop.Size = new System.Drawing.Size(1171, 620);
       this.PanelDesktop.TabIndex = 2;
       // 
       // PrincipalView
@@ -305,22 +365,28 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-      this.ClientSize = new System.Drawing.Size(1392, 682);
+      this.ClientSize = new System.Drawing.Size(1410, 700);
       this.ControlBox = false;
       this.Controls.Add(this.PanelDesktop);
-      this.Controls.Add(this.PanelProfile);
-      this.Controls.Add(this.PanelHeader);
+      this.Controls.Add(this.PanelPerfil);
       this.Controls.Add(this.PanelMenu);
+      this.Controls.Add(this.PanelHeader);
       this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.MinimumSize = new System.Drawing.Size(1410, 700);
       this.Name = "PrincipalView";
       this.ShowIcon = false;
       this.ShowInTaskbar = false;
       this.Text = "Ether Solutions";
       this.PanelMenu.ResumeLayout(false);
-      this.PanelProfile.ResumeLayout(false);
+      this.PanelPerfil.ResumeLayout(false);
+      this.TlpPerfil.ResumeLayout(false);
+      this.TlpPerfil.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.CircularPicBoxPerfil)).EndInit();
       this.PanelHeader.ResumeLayout(false);
       this.PanelHeader.PerformLayout();
+      this.TlpPrincipalAcoes.ResumeLayout(false);
+      this.TlpPrincipalAcoes.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -330,17 +396,20 @@
 
     private Panel PanelMenu;
     private Button BtnVenda;
-    private Panel PanelProfile;
+    private Panel PanelPerfil;
     private Button BtnVendedores;
     private Button BtnCliente;
     private Button BtnProduto;
     private Panel PanelHeader;
     private Label LabelHeader;
     private Panel PanelDesktop;
-    private Button BtnProfile;
     private Button BtnCloseChildForm;
     private Button BtnClose;
     private Button BtnMinimize;
     private Button BtnMaximizeRestore;
+    private TableLayoutPanel TlpPrincipalAcoes;
+    private KpmUiKit.CommonControls.KpmCircularPictureBox CircularPicBoxPerfil;
+    private LinkLabel LinkLabelPerfil;
+    private TableLayoutPanel TlpPerfil;
   }
 }

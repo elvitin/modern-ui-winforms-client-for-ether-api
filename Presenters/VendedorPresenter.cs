@@ -33,8 +33,6 @@ namespace AppEngSoft.Presenters
       view.Show();
     }
 
-
-
     private void SalvarVendedor(object? sender, EventArgs e)
     {
       uint id = int.TryParse(view.Id, out _) ? Convert.ToUInt32(view.Id) : 0;

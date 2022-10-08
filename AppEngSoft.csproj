@@ -11,9 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Forms\Produto.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -29,11 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
     <Folder Include="CustomControls\" />
-    <Folder Include="Models\Cliente\" />
-    <Folder Include="Repositorios\Cliente\" />
-    <Folder Include="Views\Cliente\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,7 +37,7 @@
 
   <ItemGroup>
     <Reference Include="EtherAPI">
-      <HintPath>..\ProjetoEngenhariaIII\EtherAPI\bin\Release\net6.0-windows\EtherAPI.dll</HintPath>
+      <HintPath>..\ProjetoEngenhariaIII Final\ProjetoEngenhariaIII\ProjetoEngenhariaIII\bin\Release\net6.0\EtherAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
 

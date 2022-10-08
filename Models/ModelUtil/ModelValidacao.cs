@@ -11,6 +11,7 @@ namespace AppEngSoft.Models.Utils
       List<ValidationResult> erros = new();
       ValidationContext context = new(model);
       bool isValid = Validator.TryValidateObject(model, context, erros, true);
+
       if (!isValid)
       {
         foreach (var erro in erros)

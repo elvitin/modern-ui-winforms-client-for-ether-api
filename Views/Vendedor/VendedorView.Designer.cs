@@ -1,4 +1,6 @@
-﻿namespace AppEngSoft.Views.Vendedor
+﻿using System.Windows.Forms;
+
+namespace AppEngSoft.Views.Vendedor
 {
   partial class VendedorView
   {
@@ -63,6 +65,7 @@
       this.PanelVendedor.Controls.Add(this.PanelLista);
       this.PanelVendedor.Controls.Add(this.PanelDetalhes);
       this.PanelVendedor.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.PanelVendedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
       this.PanelVendedor.Location = new System.Drawing.Point(0, 0);
       this.PanelVendedor.Margin = new System.Windows.Forms.Padding(0);
       this.PanelVendedor.Name = "PanelVendedor";
@@ -101,7 +104,6 @@
       this.DgvVendedores.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.DgvVendedores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
       this.DgvVendedores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
       dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
       dataGridViewCellStyle2.Font = new System.Drawing.Font("JetBrains Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
@@ -137,7 +139,7 @@
       this.DgvVendedores.RowHeadersWidth = 51;
       this.DgvVendedores.RowTemplate.Height = 50;
       this.DgvVendedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-      this.DgvVendedores.Size = new System.Drawing.Size(970, 996);
+      this.DgvVendedores.Size = new System.Drawing.Size(970, 997);
       this.DgvVendedores.TabIndex = 11;
       // 
       // TlpActionsLista
@@ -272,7 +274,7 @@
       this.TxtBoxProcurar.BorderSize = 1;
       this.TxtBoxProcurar.Font = new System.Drawing.Font("JetBrains Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       this.TxtBoxProcurar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.TxtBoxProcurar.Location = new System.Drawing.Point(11, 1010);
+      this.TxtBoxProcurar.Location = new System.Drawing.Point(11, 1011);
       this.TxtBoxProcurar.Margin = new System.Windows.Forms.Padding(0);
       this.TxtBoxProcurar.Multiline = false;
       this.TxtBoxProcurar.Name = "TxtBoxProcurar";
@@ -431,7 +433,7 @@
       this.Controls.Add(this.PanelVendedor);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Name = "VendedorView";
-      this.Tag = "Vendedor";
+      this.Tag = "Vendedores";
       this.Text = "VendedorView";
       this.PanelVendedor.ResumeLayout(false);
       this.PanelLista.ResumeLayout(false);
@@ -444,18 +446,18 @@
 
     }
 
-        #endregion
+    #endregion
 
-        private Panel PanelVendedor;
-        private Panel PanelLista;
-        private Panel PanelDetalhes;
-        private TableLayoutPanel TlpActionsLista;
-        private CustomControls.KpmButton BtnExcluir;
-        private CustomControls.KpmButton BtnEditar;
-        private CustomControls.KpmButton BtnNovo;
-        private CustomControls.KpmButton BtnProcurar;
-        private CustomControls.KpmTextBox TxtBoxProcurar;
-        private DataGridView DgvVendedores;
+    private Panel PanelVendedor;
+    private Panel PanelLista;
+    private Panel PanelDetalhes;
+    private TableLayoutPanel TlpActionsLista;
+    private CustomControls.KpmButton BtnExcluir;
+    private CustomControls.KpmButton BtnEditar;
+    private CustomControls.KpmButton BtnNovo;
+    private CustomControls.KpmButton BtnProcurar;
+    private CustomControls.KpmTextBox TxtBoxProcurar;
+    private DataGridView DgvVendedores;
     private TableLayoutPanel TlpActionsDetalhes;
     private CustomControls.KpmButton BtnSalvar;
     private CustomControls.KpmButton BtnCancelar;

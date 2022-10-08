@@ -1,47 +1,43 @@
-﻿namespace AppEngSoft.Views.Vendedor
+﻿namespace AppEngSoft.Views.Produto
 {
-
-  public partial class VendedorView : Form, IVendedorView
+  public partial class ProdutoView : Form, IProdutoView
   {
     //Campos
-    private static VendedorView instancia;
-
-    //Construtor
-    public VendedorView()
+    private static ProdutoView instancia;
+    public ProdutoView()
     {
       InitializeComponent();
       TrocarPainel(PanelDetalhes, PanelLista);
       AssociarEventos();
+
+      //DgvUnidades.DataSource = new object[] { "victor", "taveira"};
     }
 
-    //Singleton da VendedorView
-    public static VendedorView ObterInstancia
+    //Singleton da ProdutoView
+    public static ProdutoView ObterInstancia()
     {
-      get
+      if (instancia == null || instancia.IsDisposed)
       {
-        if (instancia == null || instancia.IsDisposed)
-        {
-          //MessageBox.Show("Nova instancia de VendedorView");
-          instancia = new();
-        }
-        //else MessageBox.Show("Retornando instancia de VendedorView");
-
-
-        return instancia;
+        instancia = new();
       }
+      return instancia;
     }
 
-    //Propriedades da model/view
-    public string Id { get => TxtBoxVendedorID.Texts; set => TxtBoxVendedorID.Texts = value; }
-    public string Nome { get => TxtBoxVendedorNome.Texts; set => TxtBoxVendedorNome.Texts = value; }
+    public string Id { get => TxtBoxProdutoID.Texts; set => TxtBoxProdutoID.Texts = value; }
+    public string Nome { get => TxtBoxProdutoNome.Texts; set => TxtBoxProdutoNome.Texts = value; }
+    public string Preco { get => TxtBoxProdutoPreco.Texts; set => TxtBoxProdutoPreco.Texts = value; }
+    public string Estoque { get => TxtBoxProdutoQtde.Texts; set => TxtBoxProdutoQtde.Texts = value; }
+    public string ProdutoUnidadeID { get => TxtBoxProdutoUnidadeID.Texts; set => TxtBoxProdutoUnidadeID.Texts = value; }
+    public string ProdutoUnidadeNome { get => TxtBoxProdutoUnidadeNome.Texts; set => TxtBoxProdutoUnidadeNome.Texts = value; }
 
-    //Propriedades de comportamento
-    public string ValorBusca { get => TxtBoxProcurar.Texts; set => TxtBoxProcurar.Texts = value; }
+
     public string Mensagem { get; set; }
+    public string ValorBusca { get => TxtBoxProcurar.Texts; set => TxtBoxProcurar.Texts = value; }
+
     public bool eSucessoOperacao { get; set; }
     public bool eEdicao { get; set; }
 
-    //Eventos
+
     public event EventHandler ProcurarEvento;
     public event EventHandler AdicionarEvento;
     public event EventHandler EditarEvento;
@@ -49,34 +45,32 @@
     public event EventHandler SalvarEvento;
     public event EventHandler CancelarEvento;
 
-    //Metodos da interface
-    public void LigarFonteDados(BindingSource VendedoresLista)
-    {
-      DgvVendedores.DataSource = VendedoresLista;
-    }
-
-
-
     public void AssociarEventos()
     {
       BtnEditar.Click += delegate
       {
-        if (DgvVendedores.RowCount <= 0) return;
+        if (DgvProdutos.RowCount <= 0) return;
         EditarEvento?.Invoke(this, EventArgs.Empty);
         TrocarPainel(PanelLista, PanelDetalhes);
       };
 
       BtnCancelar.Click += delegate
       {
-        CancelarEvento?.Invoke(this, EventArgs.Empty);
+        //CancelarEvento?.Invoke(this, EventArgs.Empty);
         TrocarPainel(PanelDetalhes, PanelLista);
       };
 
       BtnExcluir.Click += delegate
       {
-        if (DgvVendedores.RowCount <= 0) return;
+        int index = ObterIndexPorNome(DgvProdutos, "Id");
+
+        if (DgvProdutos.RowCount <= 0 || index == -1)
+          return;
+
+        uint id = (uint)DgvProdutos.SelectedRows[0].Cells[index].Value;
+
         DialogResult result = MessageBox.Show(
-          "Você realmente quer deletar o vendedor?",
+          $"Você realmente quer excluir o produto ID: {id}?",
           "Atenção",
           MessageBoxButtons.YesNo,
           MessageBoxIcon.Warning
@@ -114,11 +108,6 @@
         ProcurarEvento?.Invoke(this, EventArgs.Empty);
       };
 
-      BtnProcurar.Click += delegate
-      {
-        ProcurarEvento?.Invoke(this, EventArgs.Empty);
-      };
-
       BtnNovo.Click += delegate
       {
         AdicionarEvento?.Invoke(this, EventArgs.Empty);
@@ -126,14 +115,38 @@
       };
     }
 
+    private int ObterIndexPorNome(DataGridView dgv, string nome)
+    {
+      int index;
+      try
+      {
+        index = dgv.Columns[nome].Index;
+      }
+      catch
+      {
+        index = -1;
+      }
+      return index;
+    }
+
+    public void LigarFonteDados(BindingSource ProdutosLista)
+    {
+      DgvProdutos.DataSource = ProdutosLista;
+    }
+
+    public void LigarFonteDados_Unidades(BindingSource UnidadesLista)
+    {
+      DgvUnidades.DataSource = UnidadesLista;
+    }
+
     public void TrocarPainel(Panel atual, Panel novo)
     {
-      PanelVendedor.Controls.Remove(atual);
-      PanelVendedor.Controls.Add(novo);
+      PanelProduto.Controls.Remove(atual);
+      PanelProduto.Controls.Add(novo);
       novo.BackColor = Color.FromArgb(246, 246, 246);
       novo.Dock = DockStyle.Fill;
     }
 
-    //Metodos de suporte
+    
   }
 }

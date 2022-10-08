@@ -1,12 +1,11 @@
-﻿using AppEngSoft.Models;
+﻿using AppEngSoft.Models.Cliente;
 using EtherAPI.Control;
 using Newtonsoft.Json;
 
-namespace AppEngSoft.Repositorios
+namespace AppEngSoft.Repositorios.Cliente
 {
   internal class ClienteRepositorio : RepositorioBase, IClienteRepositorio
   {
-
     public ClienteRepositorio(string stringConexao)
     {
       base.stringConexao = stringConexao;
@@ -22,7 +21,6 @@ namespace AppEngSoft.Repositorios
         new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
       );
       bool operacao = clienteControl.Salvar(clienteSerializado);
-
       if (!operacao)
         throw new Exception("(Adição)\nErro no banco, não especificado pela API.");
     }
@@ -39,7 +37,6 @@ namespace AppEngSoft.Repositorios
     public void Editar(ClienteModel clienteModel)
     {
       ClienteControl clienteControl = new();
-
       string clienteSerializado = JsonConvert.SerializeObject(
         clienteModel,
         Formatting.Indented,
@@ -61,9 +58,7 @@ namespace AppEngSoft.Repositorios
 
     public IEnumerable<ClienteModel> ObterTodos()
     {
-
       ClienteControl clienteControl = new();
-      
       string json = clienteControl.ObterTodos();
       List<ClienteModel> clientes = JsonConvert.DeserializeObject<List<ClienteModel>>(json);
       return clientes;

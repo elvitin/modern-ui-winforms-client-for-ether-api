@@ -1,7 +1,6 @@
-﻿using AppEngSoft.Models;
+﻿using AppEngSoft.Models.Cliente;
 using AppEngSoft.Models.Utils;
-using AppEngSoft.Views;
-using EtherAPI.Models.Cliente;
+using AppEngSoft.Views.Cliente;
 
 namespace AppEngSoft.Presenters
 {
@@ -35,8 +34,6 @@ namespace AppEngSoft.Presenters
       //Exibindo view
       view.Show();
     }
-
-
 
     private void SalvarCliente(object? sender, EventArgs e)
     {
@@ -78,6 +75,7 @@ namespace AppEngSoft.Presenters
       try
       {
         new ModelValidacao().Validar(cliente);
+
         if (view.eEdicao)
         {
           repositorio.Editar(cliente);
@@ -88,13 +86,13 @@ namespace AppEngSoft.Presenters
           repositorio.Adicionar(cliente);
           view.Mensagem = "Registro salvo com sucesso!";
         }
-        view.SucessoOperacao = true;
+        view.eSucessoOperacao = true;
         AtualizarListaClientes();
         LimparCampos();
       }
       catch (Exception ex)
       {
-        view.SucessoOperacao = false;
+        view.eSucessoOperacao = false;
         view.Mensagem = ex.Message;
       }
     }
@@ -110,13 +108,13 @@ namespace AppEngSoft.Presenters
       {
         ClienteModel cliente = (ClienteModel)ClientesBinding.Current;
         repositorio.Deletar(cliente.Id);
-        view.SucessoOperacao = true;
+        view.eSucessoOperacao = true;
         view.Mensagem = "Deletado com sucesso!";
         AtualizarListaClientes();
       } 
       catch (Exception ex)
       {
-        view.SucessoOperacao = true;
+        view.eSucessoOperacao = true;
         view.Mensagem = ex.Message;
       }
     }
@@ -174,7 +172,6 @@ namespace AppEngSoft.Presenters
     private void AtualizarListaClientes()
     {
       clientes = repositorio.ObterTodos();
-
       ClientesBinding.DataSource = clientes;
     }
 

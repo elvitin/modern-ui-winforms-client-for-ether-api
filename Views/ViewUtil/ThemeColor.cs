@@ -1,8 +1,8 @@
-﻿namespace AppEngSoft
+﻿namespace AppEngSoft.Views.ViewUtil
 {
-  public static class ThemeColor
-  {
-    public static List<string> ColorList = new()
+    public static class ThemeColor
+    {
+        public static List<string> ColorList = new()
     {
       "#3F51B5",
       "#009688",
@@ -32,5 +32,5 @@
       "#7BCFE9",
       "#B71C46"
     };
-  }
+    }
 }
