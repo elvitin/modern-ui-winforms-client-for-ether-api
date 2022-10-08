@@ -1,6 +1,5 @@
 using AppEngSoft.Presenters;
 using AppEngSoft.Views;
-using System.Configuration;
 
 namespace AppEngSoft
 {

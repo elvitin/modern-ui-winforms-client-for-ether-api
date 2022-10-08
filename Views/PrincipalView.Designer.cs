@@ -52,6 +52,7 @@
       // 
       this.PanelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+      this.PanelMenu.AutoSize = true;
       this.PanelMenu.BackColor = System.Drawing.Color.White;
       this.PanelMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.PanelMenu.Controls.Add(this.BtnVendedores);
@@ -59,10 +60,10 @@
       this.PanelMenu.Controls.Add(this.BtnProduto);
       this.PanelMenu.Controls.Add(this.BtnVenda);
       this.PanelMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
-      this.PanelMenu.Location = new System.Drawing.Point(0, 152);
+      this.PanelMenu.Location = new System.Drawing.Point(0, 207);
       this.PanelMenu.Margin = new System.Windows.Forms.Padding(0);
       this.PanelMenu.Name = "PanelMenu";
-      this.PanelMenu.Size = new System.Drawing.Size(239, 484);
+      this.PanelMenu.Size = new System.Drawing.Size(239, 475);
       this.PanelMenu.TabIndex = 0;
       // 
       // BtnVendedores
@@ -167,11 +168,12 @@
       this.PanelProfile.Location = new System.Drawing.Point(0, 0);
       this.PanelProfile.Margin = new System.Windows.Forms.Padding(0);
       this.PanelProfile.Name = "PanelProfile";
-      this.PanelProfile.Size = new System.Drawing.Size(239, 154);
+      this.PanelProfile.Size = new System.Drawing.Size(239, 209);
       this.PanelProfile.TabIndex = 0;
       // 
       // BtnProfile
       // 
+      this.BtnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
       this.BtnProfile.Dock = System.Windows.Forms.DockStyle.Fill;
       this.BtnProfile.FlatAppearance.BorderSize = 0;
       this.BtnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -181,10 +183,10 @@
       this.BtnProfile.Location = new System.Drawing.Point(0, 0);
       this.BtnProfile.Margin = new System.Windows.Forms.Padding(0);
       this.BtnProfile.Name = "BtnProfile";
-      this.BtnProfile.Size = new System.Drawing.Size(235, 150);
+      this.BtnProfile.Size = new System.Drawing.Size(235, 205);
       this.BtnProfile.TabIndex = 3;
       this.BtnProfile.Tag = "";
-      this.BtnProfile.Text = "Victor Rodrigues";
+      this.BtnProfile.Text = "\r\nUser Name";
       this.BtnProfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
       this.BtnProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
       this.BtnProfile.UseVisualStyleBackColor = true;
@@ -203,7 +205,7 @@
       this.PanelHeader.Location = new System.Drawing.Point(237, 0);
       this.PanelHeader.Margin = new System.Windows.Forms.Padding(0);
       this.PanelHeader.Name = "PanelHeader";
-      this.PanelHeader.Size = new System.Drawing.Size(845, 80);
+      this.PanelHeader.Size = new System.Drawing.Size(1155, 80);
       this.PanelHeader.TabIndex = 0;
       // 
       // BtnClose
@@ -213,7 +215,7 @@
       this.BtnClose.FlatAppearance.BorderSize = 0;
       this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnClose.Image = global::AppEngSoft.Properties.Resources.icons8_close_32;
-      this.BtnClose.Location = new System.Drawing.Point(803, 0);
+      this.BtnClose.Location = new System.Drawing.Point(1113, 0);
       this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
       this.BtnClose.Name = "BtnClose";
       this.BtnClose.Size = new System.Drawing.Size(38, 38);
@@ -228,12 +230,13 @@
       this.BtnMinimize.FlatAppearance.BorderSize = 0;
       this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnMinimize.Image = global::AppEngSoft.Properties.Resources.icons8_minimize_window_32;
-      this.BtnMinimize.Location = new System.Drawing.Point(727, 0);
+      this.BtnMinimize.Location = new System.Drawing.Point(1037, 0);
       this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
       this.BtnMinimize.Name = "BtnMinimize";
       this.BtnMinimize.Size = new System.Drawing.Size(38, 38);
       this.BtnMinimize.TabIndex = 4;
       this.BtnMinimize.UseVisualStyleBackColor = true;
+      this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
       // 
       // BtnMaximizeRestore
       // 
@@ -242,7 +245,7 @@
       this.BtnMaximizeRestore.FlatAppearance.BorderSize = 0;
       this.BtnMaximizeRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnMaximizeRestore.Image = global::AppEngSoft.Properties.Resources.icons8_maximize_button_32;
-      this.BtnMaximizeRestore.Location = new System.Drawing.Point(765, 0);
+      this.BtnMaximizeRestore.Location = new System.Drawing.Point(1075, 0);
       this.BtnMaximizeRestore.Margin = new System.Windows.Forms.Padding(0);
       this.BtnMaximizeRestore.Name = "BtnMaximizeRestore";
       this.BtnMaximizeRestore.Size = new System.Drawing.Size(38, 38);
@@ -276,10 +279,11 @@
       this.LabelHeader.Location = new System.Drawing.Point(0, 0);
       this.LabelHeader.Margin = new System.Windows.Forms.Padding(0);
       this.LabelHeader.Name = "LabelHeader";
-      this.LabelHeader.Size = new System.Drawing.Size(841, 76);
+      this.LabelHeader.Size = new System.Drawing.Size(1151, 76);
       this.LabelHeader.TabIndex = 0;
       this.LabelHeader.Text = "Ether ERP";
       this.LabelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.LabelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelHeader_MouseDown);
       // 
       // PanelDesktop
       // 
@@ -292,7 +296,7 @@
       this.PanelDesktop.Margin = new System.Windows.Forms.Padding(0);
       this.PanelDesktop.Name = "PanelDesktop";
       this.PanelDesktop.Padding = new System.Windows.Forms.Padding(20);
-      this.PanelDesktop.Size = new System.Drawing.Size(843, 556);
+      this.PanelDesktop.Size = new System.Drawing.Size(1153, 602);
       this.PanelDesktop.TabIndex = 2;
       // 
       // PrincipalView
@@ -301,15 +305,14 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-      this.ClientSize = new System.Drawing.Size(1082, 636);
+      this.ClientSize = new System.Drawing.Size(1392, 682);
       this.ControlBox = false;
       this.Controls.Add(this.PanelDesktop);
       this.Controls.Add(this.PanelProfile);
-      this.Controls.Add(this.PanelMenu);
       this.Controls.Add(this.PanelHeader);
+      this.Controls.Add(this.PanelMenu);
       this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-      this.MinimumSize = new System.Drawing.Size(950, 500);
+      this.MinimumSize = new System.Drawing.Size(1410, 700);
       this.Name = "PrincipalView";
       this.ShowIcon = false;
       this.ShowInTaskbar = false;
@@ -319,6 +322,7 @@
       this.PanelHeader.ResumeLayout(false);
       this.PanelHeader.PerformLayout();
       this.ResumeLayout(false);
+      this.PerformLayout();
 
     }
 

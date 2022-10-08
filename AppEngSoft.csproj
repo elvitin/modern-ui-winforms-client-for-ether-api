@@ -31,6 +31,9 @@
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="CustomControls\" />
+    <Folder Include="Models\Cliente\" />
+    <Folder Include="Repositorios\Cliente\" />
+    <Folder Include="Views\Cliente\" />
   </ItemGroup>
 
   <ItemGroup>

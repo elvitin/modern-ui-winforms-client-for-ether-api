@@ -24,6 +24,12 @@ namespace AppEngSoft.Views
         ExibirClientesView?.Invoke(this, EventArgs.Empty);
         ActivateBtn(BtnCliente);
       };
+
+      BtnVendedores.Click += delegate
+      {
+        ExibirVendedoresView?.Invoke(this, EventArgs.Empty);
+        ActivateBtn(BtnVendedores);
+      };
     }
 
     [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -42,7 +48,7 @@ namespace AppEngSoft.Views
       formularioFilho.BringToFront();
       PanelDesktop.Controls.Add(formularioFilho);
       PanelDesktop.Tag = formularioFilho;
-      LabelHeader.Text = formularioFilho.Tag.ToString();
+      LabelHeader.Text = formularioFilho.Tag?.ToString();
     }
 
     private void ActivateBtn(Button btnSender)
@@ -104,6 +110,17 @@ namespace AppEngSoft.Views
         BtnMaximizeRestore.Image = Properties.Resources.icons8_maximize_button_32;
         this.WindowState = FormWindowState.Normal;
       }
+    }
+
+    private void LabelHeader_MouseDown(object sender, MouseEventArgs e)
+    {
+      ReleaseCapture();
+      SendMessage(this.Handle, 0x112, 0xf012, 0);
+    }
+
+    private void BtnMinimize_Click(object sender, EventArgs e)
+    {
+      this.WindowState = FormWindowState.Minimized;
     }
   }
 }

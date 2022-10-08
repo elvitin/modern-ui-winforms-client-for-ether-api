@@ -21,13 +21,17 @@ namespace AppEngSoft.Repositorios
         Formatting.Indented,
         new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
       );
-      clienteControl.Salvar(clienteSerializado);
+      bool operacao = clienteControl.Salvar(clienteSerializado);
+
+      if (!operacao)
+        throw new Exception("(Adição)\nErro no banco, não especificado pela API.");
     }
 
     public void Deletar(uint id)
     {
       ClienteControl clienteControl = new();
       bool operacao = clienteControl.Excluir(checked((int)id));
+
       if (!operacao)
         throw new Exception("(Deleção)\nErro no banco, não especificado pela API.");
     }
@@ -42,15 +46,15 @@ namespace AppEngSoft.Repositorios
         new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
       );
 
-      clienteControl.Salvar(clienteSerializado);
+      bool operacao = clienteControl.Salvar(clienteSerializado);
+      if (!operacao)
+        throw new Exception("(Edição)\nErro no banco ao editar cliente, não especificado pela API.");
     }
 
     public IEnumerable<ClienteModel> ObterPorValor(string valor)
     {
       ClienteControl clienteControl = new();
-      //MessageBox.Show("Obtendo por valor!");
       string json = clienteControl.ObterPorValor(valor);
-      //MessageBox.Show(json);
       List<ClienteModel> clientes = JsonConvert.DeserializeObject<List<ClienteModel>>(json);
       return clientes;
     }
@@ -61,7 +65,6 @@ namespace AppEngSoft.Repositorios
       ClienteControl clienteControl = new();
       
       string json = clienteControl.ObterTodos();
-      //MessageBox.Show(json);
       List<ClienteModel> clientes = JsonConvert.DeserializeObject<List<ClienteModel>>(json);
       return clientes;
     }

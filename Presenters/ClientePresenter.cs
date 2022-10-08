@@ -29,7 +29,7 @@ namespace AppEngSoft.Presenters
       //Ligando fonte de dados
       view.LigarFonteDados(ClientesBinding);
 
-      //Carregando Lista
+      //Carregando Lista - [ ] Prover Interface para esse método
       AtualizarListaClientes();
 
       //Exibindo view
@@ -147,7 +147,7 @@ namespace AppEngSoft.Presenters
       view.eEdicao = true;
 
       ClienteModel cliente = (ClienteModel)ClientesBinding.Current;
-
+      if (cliente == null) return;
       view.Id = cliente.Id.ToString();
       view.Nome = cliente.Nome;
       view.Email = cliente.Email;

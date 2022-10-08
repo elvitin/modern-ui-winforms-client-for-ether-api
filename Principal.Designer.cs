@@ -62,7 +62,7 @@
       this.PanelMenu.Location = new System.Drawing.Point(0, 152);
       this.PanelMenu.Margin = new System.Windows.Forms.Padding(0);
       this.PanelMenu.Name = "PanelMenu";
-      this.PanelMenu.Size = new System.Drawing.Size(239, 421);
+      this.PanelMenu.Size = new System.Drawing.Size(239, 501);
       this.PanelMenu.TabIndex = 0;
       // 
       // BtnVendedores
@@ -207,7 +207,7 @@
       this.PanelHeader.Location = new System.Drawing.Point(237, 0);
       this.PanelHeader.Margin = new System.Windows.Forms.Padding(0);
       this.PanelHeader.Name = "PanelHeader";
-      this.PanelHeader.Size = new System.Drawing.Size(845, 80);
+      this.PanelHeader.Size = new System.Drawing.Size(1155, 80);
       this.PanelHeader.TabIndex = 0;
       // 
       // BtnClose
@@ -217,7 +217,7 @@
       this.BtnClose.FlatAppearance.BorderSize = 0;
       this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnClose.Image = global::AppEngSoft.Properties.Resources.icons8_close_32;
-      this.BtnClose.Location = new System.Drawing.Point(803, 0);
+      this.BtnClose.Location = new System.Drawing.Point(1113, 0);
       this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
       this.BtnClose.Name = "BtnClose";
       this.BtnClose.Size = new System.Drawing.Size(38, 38);
@@ -232,7 +232,7 @@
       this.BtnMinimize.FlatAppearance.BorderSize = 0;
       this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnMinimize.Image = global::AppEngSoft.Properties.Resources.icons8_minimize_window_32;
-      this.BtnMinimize.Location = new System.Drawing.Point(727, 0);
+      this.BtnMinimize.Location = new System.Drawing.Point(1037, 0);
       this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
       this.BtnMinimize.Name = "BtnMinimize";
       this.BtnMinimize.Size = new System.Drawing.Size(38, 38);
@@ -247,7 +247,7 @@
       this.BtnMaximizeRestore.FlatAppearance.BorderSize = 0;
       this.BtnMaximizeRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.BtnMaximizeRestore.Image = global::AppEngSoft.Properties.Resources.icons8_maximize_button_32;
-      this.BtnMaximizeRestore.Location = new System.Drawing.Point(765, 0);
+      this.BtnMaximizeRestore.Location = new System.Drawing.Point(1075, 0);
       this.BtnMaximizeRestore.Margin = new System.Windows.Forms.Padding(0);
       this.BtnMaximizeRestore.Name = "BtnMaximizeRestore";
       this.BtnMaximizeRestore.Size = new System.Drawing.Size(38, 38);
@@ -281,7 +281,7 @@
       this.LabelHeader.Location = new System.Drawing.Point(0, 0);
       this.LabelHeader.Margin = new System.Windows.Forms.Padding(0);
       this.LabelHeader.Name = "LabelHeader";
-      this.LabelHeader.Size = new System.Drawing.Size(841, 76);
+      this.LabelHeader.Size = new System.Drawing.Size(1151, 76);
       this.LabelHeader.TabIndex = 0;
       this.LabelHeader.Text = "Ether ERP";
       this.LabelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -298,7 +298,7 @@
       this.PanelDesktop.Margin = new System.Windows.Forms.Padding(0);
       this.PanelDesktop.Name = "PanelDesktop";
       this.PanelDesktop.Padding = new System.Windows.Forms.Padding(20);
-      this.PanelDesktop.Size = new System.Drawing.Size(845, 493);
+      this.PanelDesktop.Size = new System.Drawing.Size(1155, 573);
       this.PanelDesktop.TabIndex = 2;
       // 
       // FormPrincipal
@@ -307,7 +307,7 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-      this.ClientSize = new System.Drawing.Size(1082, 573);
+      this.ClientSize = new System.Drawing.Size(1392, 653);
       this.ControlBox = false;
       this.Controls.Add(this.PanelProfile);
       this.Controls.Add(this.PanelMenu);
@@ -315,7 +315,7 @@
       this.Controls.Add(this.PanelDesktop);
       this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-      this.MinimumSize = new System.Drawing.Size(950, 500);
+      this.MinimumSize = new System.Drawing.Size(1410, 700);
       this.Name = "FormPrincipal";
       this.ShowIcon = false;
       this.ShowInTaskbar = false;

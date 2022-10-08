@@ -1,8 +1,14 @@
-﻿using AppEngSoft.CustomControls;
-using System.Security.Cryptography;
-
-namespace AppEngSoft.Views
+﻿namespace AppEngSoft.Views
 {
+  /*
+   * [ ] Criar classe abstrata do vendedor, de forma que ele implemente
+   * metodos repetidos, exemplo:
+   * 
+   * ObterInstancia();
+   * TrocarPainel();
+   * LigarFonteDados();
+   */
+
   public partial class ClienteView : Form, IClienteView
   {
     private static ClienteView instancia;
@@ -92,8 +98,9 @@ namespace AppEngSoft.Views
 
       BtnEditar.Click += delegate
       {
-        //Desativa troca de tipo pessoa (Isso é regra de negocio, tem que remover daqui)
+        //Desativa troca de tipo pessoa (Isso é regra de negocio, deixarque que a controler mude isso)
         //RadioBtnPesFis.Enabled = RadioBtnPesJur.Enabled = false;
+        if (DgvClientes.RowCount <= 0) return;
         PanelTipoPessoa.Enabled = false;
         EditarEvento?.Invoke(this, EventArgs.Empty);
         TrocarPainel(PanelLista, PanelDetalhes);
@@ -107,7 +114,22 @@ namespace AppEngSoft.Views
 
       BtnExcluir.Click += delegate
       {
-        DialogResult result = MessageBox.Show("Você realmente quer deletar o registro?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        int index = ObterIndexPorNome(DgvClientes, "Id");
+
+        if (DgvClientes.RowCount <= 0 || index == -1)
+          return;
+
+
+
+        uint id = (uint)DgvClientes.SelectedRows[0].Cells[index].Value;
+
+        DialogResult result = MessageBox.Show(
+          $"Você realmente quer excluir o cliente ID: {id}?",
+          "Atenção",
+          MessageBoxButtons.YesNo,
+          MessageBoxIcon.Warning
+        );
+
         if (result == DialogResult.Yes)
         {
           DeletarEvento?.Invoke(this, EventArgs.Empty);
@@ -165,6 +187,20 @@ namespace AppEngSoft.Views
     public void LigarFonteDados(BindingSource ClientesLista)
     {
       DgvClientes.DataSource = ClientesLista;
+    }
+
+    private int ObterIndexPorNome(DataGridView dgv, string nome)
+    {
+      int index;
+      try
+      {
+        index = dgv.Columns[nome].Index;
+      }
+      catch
+      {
+        index = -1;
+      }
+      return index;
     }
   }
 }
