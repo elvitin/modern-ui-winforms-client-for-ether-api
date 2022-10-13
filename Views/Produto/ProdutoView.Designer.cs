@@ -37,8 +37,10 @@
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelDetalhes = new System.Windows.Forms.Panel();
+      this.BtnCancelarUnidade = new AppEngSoft.CustomControls.KpmButton();
+      this.BtnSalvarUnidade = new AppEngSoft.CustomControls.KpmButton();
       this.BtnTrocarUnidade = new AppEngSoft.CustomControls.KpmButton();
-      this.BtnNovaUnidade = new AppEngSoft.CustomControls.KpmButton();
+      this.BtnNovoUnidade = new AppEngSoft.CustomControls.KpmButton();
       this.BtnExcluirUnidade = new AppEngSoft.CustomControls.KpmButton();
       this.BtnEditarUnidade = new AppEngSoft.CustomControls.KpmButton();
       this.BtnProcurarUnidade = new AppEngSoft.CustomControls.KpmButton();
@@ -93,8 +95,10 @@
       // PanelDetalhes
       // 
       this.PanelDetalhes.BackColor = System.Drawing.Color.Tomato;
+      this.PanelDetalhes.Controls.Add(this.BtnCancelarUnidade);
+      this.PanelDetalhes.Controls.Add(this.BtnSalvarUnidade);
       this.PanelDetalhes.Controls.Add(this.BtnTrocarUnidade);
-      this.PanelDetalhes.Controls.Add(this.BtnNovaUnidade);
+      this.PanelDetalhes.Controls.Add(this.BtnNovoUnidade);
       this.PanelDetalhes.Controls.Add(this.BtnExcluirUnidade);
       this.PanelDetalhes.Controls.Add(this.BtnEditarUnidade);
       this.PanelDetalhes.Controls.Add(this.BtnProcurarUnidade);
@@ -112,6 +116,55 @@
       this.PanelDetalhes.Name = "PanelDetalhes";
       this.PanelDetalhes.Size = new System.Drawing.Size(957, 1102);
       this.PanelDetalhes.TabIndex = 0;
+      // 
+      // BtnCancelarUnidade
+      // 
+      this.BtnCancelarUnidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnCancelarUnidade.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnCancelarUnidade.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnCancelarUnidade.BorderRadius = 10;
+      this.BtnCancelarUnidade.BorderSize = 0;
+      this.BtnCancelarUnidade.FlatAppearance.BorderSize = 0;
+      this.BtnCancelarUnidade.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
+      this.BtnCancelarUnidade.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(209)))), ((int)(((byte)(174)))));
+      this.BtnCancelarUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.BtnCancelarUnidade.Font = new System.Drawing.Font("JetBrains Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.BtnCancelarUnidade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+      this.BtnCancelarUnidade.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.BtnCancelarUnidade.Location = new System.Drawing.Point(0, 414);
+      this.BtnCancelarUnidade.Margin = new System.Windows.Forms.Padding(11, 0, 11, 0);
+      this.BtnCancelarUnidade.MaximumSize = new System.Drawing.Size(0, 38);
+      this.BtnCancelarUnidade.Name = "BtnCancelarUnidade";
+      this.BtnCancelarUnidade.Size = new System.Drawing.Size(237, 38);
+      this.BtnCancelarUnidade.TabIndex = 36;
+      this.BtnCancelarUnidade.Text = "Cancelar";
+      this.BtnCancelarUnidade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+      this.BtnCancelarUnidade.UseVisualStyleBackColor = false;
+      this.BtnCancelarUnidade.Click += new System.EventHandler(this.BtnCancelarUnidade_Click);
+      // 
+      // BtnSalvarUnidade
+      // 
+      this.BtnSalvarUnidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnSalvarUnidade.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnSalvarUnidade.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnSalvarUnidade.BorderRadius = 10;
+      this.BtnSalvarUnidade.BorderSize = 0;
+      this.BtnSalvarUnidade.FlatAppearance.BorderSize = 0;
+      this.BtnSalvarUnidade.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
+      this.BtnSalvarUnidade.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(209)))), ((int)(((byte)(174)))));
+      this.BtnSalvarUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.BtnSalvarUnidade.Font = new System.Drawing.Font("JetBrains Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.BtnSalvarUnidade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+      this.BtnSalvarUnidade.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.BtnSalvarUnidade.Location = new System.Drawing.Point(253, 414);
+      this.BtnSalvarUnidade.Margin = new System.Windows.Forms.Padding(11, 0, 11, 0);
+      this.BtnSalvarUnidade.MaximumSize = new System.Drawing.Size(0, 38);
+      this.BtnSalvarUnidade.Name = "BtnSalvarUnidade";
+      this.BtnSalvarUnidade.Size = new System.Drawing.Size(237, 38);
+      this.BtnSalvarUnidade.TabIndex = 35;
+      this.BtnSalvarUnidade.Text = "Salvar Unidade";
+      this.BtnSalvarUnidade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+      this.BtnSalvarUnidade.UseVisualStyleBackColor = false;
       // 
       // BtnTrocarUnidade
       // 
@@ -136,30 +189,31 @@
       this.BtnTrocarUnidade.Text = "Trocar Unidade";
       this.BtnTrocarUnidade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
       this.BtnTrocarUnidade.UseVisualStyleBackColor = false;
+      this.BtnTrocarUnidade.Click += new System.EventHandler(this.BtnTrocarUnidade_Click);
       // 
-      // BtnNovaUnidade
+      // BtnNovoUnidade
       // 
-      this.BtnNovaUnidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
-      this.BtnNovaUnidade.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
-      this.BtnNovaUnidade.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
-      this.BtnNovaUnidade.BorderRadius = 10;
-      this.BtnNovaUnidade.BorderSize = 0;
-      this.BtnNovaUnidade.FlatAppearance.BorderSize = 0;
-      this.BtnNovaUnidade.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
-      this.BtnNovaUnidade.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(209)))), ((int)(((byte)(174)))));
-      this.BtnNovaUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.BtnNovaUnidade.Font = new System.Drawing.Font("JetBrains Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      this.BtnNovaUnidade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-      this.BtnNovaUnidade.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.BtnNovaUnidade.Location = new System.Drawing.Point(379, 357);
-      this.BtnNovaUnidade.Margin = new System.Windows.Forms.Padding(11, 0, 11, 0);
-      this.BtnNovaUnidade.MaximumSize = new System.Drawing.Size(0, 38);
-      this.BtnNovaUnidade.Name = "BtnNovaUnidade";
-      this.BtnNovaUnidade.Size = new System.Drawing.Size(111, 38);
-      this.BtnNovaUnidade.TabIndex = 3;
-      this.BtnNovaUnidade.Text = "Novo";
-      this.BtnNovaUnidade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-      this.BtnNovaUnidade.UseVisualStyleBackColor = false;
+      this.BtnNovoUnidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnNovoUnidade.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnNovoUnidade.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
+      this.BtnNovoUnidade.BorderRadius = 10;
+      this.BtnNovoUnidade.BorderSize = 0;
+      this.BtnNovoUnidade.FlatAppearance.BorderSize = 0;
+      this.BtnNovoUnidade.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
+      this.BtnNovoUnidade.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(209)))), ((int)(((byte)(174)))));
+      this.BtnNovoUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.BtnNovoUnidade.Font = new System.Drawing.Font("JetBrains Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.BtnNovoUnidade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+      this.BtnNovoUnidade.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.BtnNovoUnidade.Location = new System.Drawing.Point(379, 357);
+      this.BtnNovoUnidade.Margin = new System.Windows.Forms.Padding(11, 0, 11, 0);
+      this.BtnNovoUnidade.MaximumSize = new System.Drawing.Size(0, 38);
+      this.BtnNovoUnidade.Name = "BtnNovoUnidade";
+      this.BtnNovoUnidade.Size = new System.Drawing.Size(111, 38);
+      this.BtnNovoUnidade.TabIndex = 3;
+      this.BtnNovoUnidade.Text = "Novo";
+      this.BtnNovoUnidade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+      this.BtnNovoUnidade.UseVisualStyleBackColor = false;
       // 
       // BtnExcluirUnidade
       // 
@@ -235,7 +289,7 @@
       // 
       // TxtBoxProdutoUnidadeID
       // 
-      this.TxtBoxProdutoUnidadeID.BackColor = System.Drawing.SystemColors.ButtonFace;
+      this.TxtBoxProdutoUnidadeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.TxtBoxProdutoUnidadeID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxProdutoUnidadeID.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxProdutoUnidadeID.BorderRadius = 5;
@@ -251,6 +305,7 @@
       this.TxtBoxProdutoUnidadeID.PasswordChar = false;
       this.TxtBoxProdutoUnidadeID.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxProdutoUnidadeID.PlaceHolderText = "Unidade ID";
+      this.TxtBoxProdutoUnidadeID.ReadOnly = false;
       this.TxtBoxProdutoUnidadeID.Size = new System.Drawing.Size(109, 35);
       this.TxtBoxProdutoUnidadeID.TabIndex = 15;
       this.TxtBoxProdutoUnidadeID.Texts = "";
@@ -258,7 +313,7 @@
       // 
       // TxtBoxProdutoUnidadeNome
       // 
-      this.TxtBoxProdutoUnidadeNome.BackColor = System.Drawing.SystemColors.ButtonFace;
+      this.TxtBoxProdutoUnidadeNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.TxtBoxProdutoUnidadeNome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxProdutoUnidadeNome.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxProdutoUnidadeNome.BorderRadius = 5;
@@ -274,6 +329,7 @@
       this.TxtBoxProdutoUnidadeNome.PasswordChar = false;
       this.TxtBoxProdutoUnidadeNome.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxProdutoUnidadeNome.PlaceHolderText = "Unidade Nome";
+      this.TxtBoxProdutoUnidadeNome.ReadOnly = false;
       this.TxtBoxProdutoUnidadeNome.Size = new System.Drawing.Size(201, 35);
       this.TxtBoxProdutoUnidadeNome.TabIndex = 16;
       this.TxtBoxProdutoUnidadeNome.Texts = "";
@@ -281,7 +337,7 @@
       // 
       // TxtBoxUnidadeID
       // 
-      this.TxtBoxUnidadeID.BackColor = System.Drawing.SystemColors.ButtonFace;
+      this.TxtBoxUnidadeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.TxtBoxUnidadeID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxUnidadeID.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxUnidadeID.BorderRadius = 5;
@@ -297,6 +353,7 @@
       this.TxtBoxUnidadeID.PasswordChar = false;
       this.TxtBoxUnidadeID.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxUnidadeID.PlaceHolderText = "Unidade ID";
+      this.TxtBoxUnidadeID.ReadOnly = false;
       this.TxtBoxUnidadeID.Size = new System.Drawing.Size(133, 35);
       this.TxtBoxUnidadeID.TabIndex = 33;
       this.TxtBoxUnidadeID.Texts = "";
@@ -304,7 +361,7 @@
       // 
       // TxtBoxUnidadeNome
       // 
-      this.TxtBoxUnidadeNome.BackColor = System.Drawing.SystemColors.ButtonFace;
+      this.TxtBoxUnidadeNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.TxtBoxUnidadeNome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxUnidadeNome.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxUnidadeNome.BorderRadius = 5;
@@ -320,6 +377,7 @@
       this.TxtBoxUnidadeNome.PasswordChar = false;
       this.TxtBoxUnidadeNome.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxUnidadeNome.PlaceHolderText = "Unidade Nome";
+      this.TxtBoxUnidadeNome.ReadOnly = false;
       this.TxtBoxUnidadeNome.Size = new System.Drawing.Size(340, 35);
       this.TxtBoxUnidadeNome.TabIndex = 17;
       this.TxtBoxUnidadeNome.Texts = "";
@@ -379,6 +437,7 @@
       this.DgvUnidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.DgvUnidades.Size = new System.Drawing.Size(490, 257);
       this.DgvUnidades.TabIndex = 32;
+      this.DgvUnidades.SelectionChanged += new System.EventHandler(this.DgvUnidades_SelectionChanged);
       // 
       // TlpActionsDetalhes
       // 
@@ -483,6 +542,7 @@
       this.TxtBoxProdutoNome.PasswordChar = false;
       this.TxtBoxProdutoNome.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxProdutoNome.PlaceHolderText = "Nome";
+      this.TxtBoxProdutoNome.ReadOnly = false;
       this.TxtBoxProdutoNome.Size = new System.Drawing.Size(325, 35);
       this.TxtBoxProdutoNome.TabIndex = 13;
       this.TxtBoxProdutoNome.Texts = "";
@@ -505,6 +565,7 @@
       this.TxtBoxProdutoPreco.PasswordChar = false;
       this.TxtBoxProdutoPreco.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxProdutoPreco.PlaceHolderText = "Preço";
+      this.TxtBoxProdutoPreco.ReadOnly = false;
       this.TxtBoxProdutoPreco.Size = new System.Drawing.Size(325, 35);
       this.TxtBoxProdutoPreco.TabIndex = 11;
       this.TxtBoxProdutoPreco.Texts = "";
@@ -527,6 +588,7 @@
       this.TxtBoxProdutoQtde.PasswordChar = false;
       this.TxtBoxProdutoQtde.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxProdutoQtde.PlaceHolderText = "Quantidade";
+      this.TxtBoxProdutoQtde.ReadOnly = false;
       this.TxtBoxProdutoQtde.Size = new System.Drawing.Size(325, 35);
       this.TxtBoxProdutoQtde.TabIndex = 14;
       this.TxtBoxProdutoQtde.Texts = "";
@@ -534,11 +596,12 @@
       // 
       // TxtBoxProdutoID
       // 
-      this.TxtBoxProdutoID.BackColor = System.Drawing.Color.White;
+      this.TxtBoxProdutoID.BackColor = System.Drawing.SystemColors.ButtonFace;
       this.TxtBoxProdutoID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxProdutoID.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxProdutoID.BorderRadius = 5;
       this.TxtBoxProdutoID.BorderSize = 1;
+      this.TxtBoxProdutoID.Enabled = false;
       this.TxtBoxProdutoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       this.TxtBoxProdutoID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(27)))));
       this.TxtBoxProdutoID.Location = new System.Drawing.Point(0, 0);
@@ -548,7 +611,8 @@
       this.TxtBoxProdutoID.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
       this.TxtBoxProdutoID.PasswordChar = false;
       this.TxtBoxProdutoID.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
-      this.TxtBoxProdutoID.PlaceHolderText = "";
+      this.TxtBoxProdutoID.PlaceHolderText = "Produto ID";
+      this.TxtBoxProdutoID.ReadOnly = false;
       this.TxtBoxProdutoID.Size = new System.Drawing.Size(325, 35);
       this.TxtBoxProdutoID.TabIndex = 35;
       this.TxtBoxProdutoID.Texts = "";
@@ -628,7 +692,7 @@
       // 
       this.TxtBoxProcurar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.TxtBoxProcurar.BackColor = System.Drawing.SystemColors.Window;
+      this.TxtBoxProcurar.BackColor = System.Drawing.Color.White;
       this.TxtBoxProcurar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.TxtBoxProcurar.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.TxtBoxProcurar.BorderRadius = 5;
@@ -643,6 +707,7 @@
       this.TxtBoxProcurar.PasswordChar = false;
       this.TxtBoxProcurar.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.TxtBoxProcurar.PlaceHolderText = "Buscar por ID ou Nome";
+      this.TxtBoxProcurar.ReadOnly = false;
       this.TxtBoxProcurar.Size = new System.Drawing.Size(963, 37);
       this.TxtBoxProcurar.TabIndex = 12;
       this.TxtBoxProcurar.Texts = "";
@@ -807,7 +872,7 @@
       // 
       // kpmTextBox1
       // 
-      this.kpmTextBox1.BackColor = System.Drawing.SystemColors.Window;
+      this.kpmTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.kpmTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.kpmTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.kpmTextBox1.BorderRadius = 5;
@@ -822,6 +887,7 @@
       this.kpmTextBox1.PasswordChar = false;
       this.kpmTextBox1.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.kpmTextBox1.PlaceHolderText = "Unidade ID";
+      this.kpmTextBox1.ReadOnly = false;
       this.kpmTextBox1.Size = new System.Drawing.Size(133, 35);
       this.kpmTextBox1.TabIndex = 15;
       this.kpmTextBox1.Texts = "";
@@ -839,7 +905,7 @@
       // 
       // kpmTextBox2
       // 
-      this.kpmTextBox2.BackColor = System.Drawing.SystemColors.Window;
+      this.kpmTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.kpmTextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.kpmTextBox2.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.kpmTextBox2.BorderRadius = 5;
@@ -854,6 +920,7 @@
       this.kpmTextBox2.PasswordChar = false;
       this.kpmTextBox2.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.kpmTextBox2.PlaceHolderText = "Unidade Nome";
+      this.kpmTextBox2.ReadOnly = false;
       this.kpmTextBox2.Size = new System.Drawing.Size(133, 35);
       this.kpmTextBox2.TabIndex = 16;
       this.kpmTextBox2.Texts = "";
@@ -885,7 +952,7 @@
       // 
       // kpmTextBox3
       // 
-      this.kpmTextBox3.BackColor = System.Drawing.SystemColors.Window;
+      this.kpmTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.kpmTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.kpmTextBox3.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.kpmTextBox3.BorderRadius = 5;
@@ -900,6 +967,7 @@
       this.kpmTextBox3.PasswordChar = false;
       this.kpmTextBox3.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.kpmTextBox3.PlaceHolderText = "Unidade ID";
+      this.kpmTextBox3.ReadOnly = false;
       this.kpmTextBox3.Size = new System.Drawing.Size(133, 35);
       this.kpmTextBox3.TabIndex = 15;
       this.kpmTextBox3.Texts = "";
@@ -917,7 +985,7 @@
       // 
       // kpmTextBox4
       // 
-      this.kpmTextBox4.BackColor = System.Drawing.SystemColors.Window;
+      this.kpmTextBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
       this.kpmTextBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
       this.kpmTextBox4.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(133)))), ((int)(((byte)(111)))));
       this.kpmTextBox4.BorderRadius = 5;
@@ -932,6 +1000,7 @@
       this.kpmTextBox4.PasswordChar = false;
       this.kpmTextBox4.PlaceHolderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(165)))));
       this.kpmTextBox4.PlaceHolderText = "Unidade Nome";
+      this.kpmTextBox4.ReadOnly = false;
       this.kpmTextBox4.Size = new System.Drawing.Size(133, 35);
       this.kpmTextBox4.TabIndex = 16;
       this.kpmTextBox4.Texts = "";
@@ -1002,9 +1071,11 @@
     private CustomControls.KpmTextBox TxtBoxUnidadeNome;
     private CustomControls.KpmButton BtnExcluirUnidade;
     private CustomControls.KpmButton BtnEditarUnidade;
-    private CustomControls.KpmButton BtnNovaUnidade;
+    private CustomControls.KpmButton BtnNovoUnidade;
     private CustomControls.KpmButton BtnProcurarUnidade;
     private CustomControls.KpmButton BtnTrocarUnidade;
     private CustomControls.KpmTextBox TxtBoxProdutoID;
+    private CustomControls.KpmButton BtnSalvarUnidade;
+    private CustomControls.KpmButton BtnCancelarUnidade;
   }
 }

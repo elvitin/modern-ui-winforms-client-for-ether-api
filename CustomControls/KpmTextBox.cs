@@ -18,6 +18,7 @@ namespace AppEngSoft.CustomControls
     private string placeHolderText = "";
     private bool isPlaceHolder = false;
     private bool isPasswordChar = false;
+    private bool firstState = true;
 
     //Events
     public event EventHandler _TextChanged;
@@ -148,6 +149,28 @@ namespace AppEngSoft.CustomControls
         placeHolderText = value;
         TxtBox.Text = "";
         SetPlaceHolder();
+      }
+    }
+
+    [Category("Kpm Custom Properties")]
+    public bool ReadOnly
+    {
+      get
+      {
+        //this.Invalidate();
+        return TxtBox.ReadOnly;
+      }
+      set
+      {
+        if (firstState)
+        {
+          firstState = false;
+          return;
+        }
+
+        BackColor = value ? Color.FromArgb(255, 255, 255) : Color.FromArgb(240, 240, 240);
+        TxtBox.ReadOnly = value;
+        //this.Invalidate();
       }
     }
 

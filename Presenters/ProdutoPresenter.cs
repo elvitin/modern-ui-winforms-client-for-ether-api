@@ -1,13 +1,14 @@
 ﻿using AppEngSoft.Models.Produto;
 using AppEngSoft.Models.Utils;
 using AppEngSoft.Views.Produto;
+using EtherAPI.Models.Produto;
 
 namespace AppEngSoft.Presenters
 {
   internal class ProdutoPresenter
   {
     private IProdutoView view;
-    private IProdutoRepositorio repositorio;
+    private IProdutoRepositorio produtoRepositorio;
     private IUnidadeRepositorio unidadeRepositorio;
 
     private BindingSource ProdutosBinding;
@@ -16,22 +17,30 @@ namespace AppEngSoft.Presenters
     private IEnumerable<ProdutoModel> produtos;
     private IEnumerable<UnidadeModel> unidades;
 
-    public ProdutoPresenter(IProdutoView view, IProdutoRepositorio repositorio, IUnidadeRepositorio unidadeRepositorio)
+    public ProdutoPresenter(IProdutoView view, IProdutoRepositorio produtoRepositorio, IUnidadeRepositorio unidadeRepositorio)
     {
       ProdutosBinding = new();
       UnidadesBinding = new();
 
       this.view = view;
-      this.repositorio = repositorio;
+      this.produtoRepositorio = produtoRepositorio;
       this.unidadeRepositorio = unidadeRepositorio;
 
       //Assinando eventos
+      view.AdicionarEvento += AdicionarProduto;
+      view.SalvarEvento += SalvarProduto;
       view.ProcurarEvento += ProcurarProduto;
       view.EditarEvento += CarregarEditarProduto;
       view.CancelarEvento += CancelarOperacao;
       view.DeletarEvento += DeletarProdutoSelecionado;
-      view.AdicionarEvento += AdicionarProduto;
-      view.SalvarEvento += SalvarProduto;
+
+
+
+      //Assinando eventos da Unidade
+      view.AdicionarEventoUnidade += AdicionarUnidade;
+      view.SalvarEventoUnidade += SalvarUnidade;
+      view.EditarEventoUnidade += CarregarEditarUnidade;
+      view.DeletarEventoUnidade += DeletarUnidadeSelecionada;
 
       //Ligando fonte de dados
       view.LigarFonteDados(ProdutosBinding);
@@ -45,16 +54,32 @@ namespace AppEngSoft.Presenters
       view.Show();
     }
 
-    private void AtualizarListaUnidades()
+    private void DeletarUnidadeSelecionada(object? sender, EventArgs e)
     {
-      unidades = unidadeRepositorio.ObterTodos();
-      UnidadesBinding.DataSource = unidades;
+      try
+      {
+        UnidadeModel unidade = (UnidadeModel)UnidadesBinding.Current;
+        unidadeRepositorio.Deletar(unidade.Id);
+        view.eSucessoOperacao = true;
+        view.Mensagem = $"Unidade ID {unidade.Id}, Deletado com sucesso!";
+        AtualizarListaUnidades();
+        view.eSucessoOperacao = true;
+      }
+      catch (Exception)
+      {
+
+      }
     }
 
-    private void AtualizarListaProdutos()
+    private void CarregarEditarUnidade(object? sender, EventArgs e)
     {
-      produtos = repositorio.ObterTodos();
-      ProdutosBinding.DataSource = produtos;
+      //Não precisando enviar os dados para a view, pq já estaram lá.
+      view.eEdicaoUnidade = true;
+    }
+
+    private void AdicionarUnidade(object? sender, EventArgs e)
+    {
+      view.eEdicaoUnidade = false;
     }
 
     private void SalvarProduto(object? sender, EventArgs e)
@@ -80,13 +105,13 @@ namespace AppEngSoft.Presenters
 
         if (view.eEdicao)
         {
-          repositorio.Editar(produto);
+          produtoRepositorio.Editar(produto);
           view.Mensagem = $"Produto ID {produto.Id}, Editado com sucesso!";
         }
         else
         {
-          repositorio.Adicionar(produto);
-          view.Mensagem = "Produto salvo com sucesso!";
+          produtoRepositorio.Adicionar(produto);
+          view.Mensagem = $"Produto adicionado com sucesso!";
         }
 
         view.eSucessoOperacao = true;
@@ -98,6 +123,61 @@ namespace AppEngSoft.Presenters
         view.eSucessoOperacao = false;
         view.Mensagem = ex.Message;
       }
+    }
+
+    private void SalvarUnidade(object? sender, EventArgs e)
+    {
+      uint id = int.TryParse(view.UnidadeID, out _) ? Convert.ToUInt32(view.UnidadeID) : 0;
+      UnidadeModel unidade = new()
+      {
+        Id = id,
+        Nome = view.UnidadeNome
+      };
+
+      try
+      {
+        new ModelValidacao().Validar(unidade);
+
+        if (view.eEdicaoUnidade)
+        {
+          unidadeRepositorio.Editar(unidade);
+          view.Mensagem = $"Unidade ID {unidade.Id}, Editado com sucesso!";
+        }
+        else
+        {
+          unidadeRepositorio.Adicionar(unidade);
+          view.Mensagem = $"Unidade adicionada com sucesso!";
+        }
+        view.eSucessoOperacao = true;
+        AtualizarListaUnidades();
+        view.UnidadeNome = "";
+      }
+      catch (Exception ex)
+      {
+        view.eSucessoOperacao = false;
+        view.Mensagem = ex.Message;
+      }
+    }
+
+    private void AtualizarListaUnidades()
+    {
+      unidades = unidadeRepositorio.ObterTodos();
+      if (unidades.Any())
+      {
+        view.UnidadeID = unidades.ElementAt(0).Id.ToString();
+        view.UnidadeNome = unidades.ElementAt(0).Nome.ToString();
+      }
+      else
+      {
+        view.UnidadeID = view.UnidadeNome = "";
+      }
+      UnidadesBinding.DataSource = unidades;
+    }
+
+    private void AtualizarListaProdutos()
+    {
+      produtos = produtoRepositorio.ObterTodos();
+      ProdutosBinding.DataSource = produtos;
     }
 
     private void LimparCampos()
@@ -120,14 +200,14 @@ namespace AppEngSoft.Presenters
       try
       {
         ProdutoModel produto = (ProdutoModel)ProdutosBinding.Current;
-        repositorio.Deletar(produto.Id);
+        produtoRepositorio.Deletar(produto.Id);
         view.eSucessoOperacao = true;
         view.Mensagem = $"Produto ID {produto.Id} Deletado com sucesso!";
         AtualizarListaProdutos();
       }
       catch (Exception ex)
       {
-        view.eSucessoOperacao = true;
+        view.eSucessoOperacao = false;
         view.Mensagem = ex.Message;
       }
     }
@@ -148,7 +228,7 @@ namespace AppEngSoft.Presenters
       view.Preco = produto.Preco.ToString();
       view.Estoque = produto.Estoque.ToString();
 
-      ProdutoModel restanteDadosProduto = repositorio.ObterPorValor(produto.Id.ToString()).FirstOrDefault();
+      ProdutoModel restanteDadosProduto = produtoRepositorio.ObterPorValor(produto.Id.ToString()).FirstOrDefault();
 
       view.ProdutoUnidadeID = restanteDadosProduto.Unidade.Id.ToString();
       view.ProdutoUnidadeNome = restanteDadosProduto.Unidade.Nome;
@@ -157,7 +237,7 @@ namespace AppEngSoft.Presenters
     private void ProcurarProduto(object? sender, EventArgs e)
     {
       bool eValorVazio = string.IsNullOrEmpty(view.ValorBusca);
-      produtos = !eValorVazio ? repositorio.ObterPorValor(view.ValorBusca) : repositorio.ObterTodos();
+      produtos = !eValorVazio ? produtoRepositorio.ObterPorValor(view.ValorBusca) : produtoRepositorio.ObterTodos();
       ProdutosBinding.DataSource = produtos;
     }
   }

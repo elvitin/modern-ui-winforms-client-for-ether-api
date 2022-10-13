@@ -11,6 +11,19 @@
     string ProdutoUnidadeID { get; set; }
     string ProdutoUnidadeNome { get; set; }
 
+    string UnidadeID { get; set; } 
+    string UnidadeNome { get; set; }
+
+    event EventHandler ProcurarEventoUnidade;
+    event EventHandler AdicionarEventoUnidade;
+    event EventHandler EditarEventoUnidade;
+    event EventHandler DeletarEventoUnidade;
+    event EventHandler SalvarEventoUnidade;
+    event EventHandler CancelarEventoUnidade;
+
+    //Atributos de comportamento
+    bool eEdicaoUnidade { get; set; }
+
     void LigarFonteDados_Unidades(BindingSource lista);
   }
 }

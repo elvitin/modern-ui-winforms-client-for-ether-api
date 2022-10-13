@@ -74,7 +74,6 @@ namespace AppEngSoft.Views
     public bool eSucessoOperacao { get; set; }
     public bool eEdicao { get; set; }
 
-
     //Eventos
     public event EventHandler ProcurarEvento;
     public event EventHandler AdicionarEvento;
@@ -82,7 +81,6 @@ namespace AppEngSoft.Views
     public event EventHandler DeletarEvento;
     public event EventHandler SalvarEvento;
     public event EventHandler CancelarEvento;
-
 
     //Metodos da interface
     public void LigarFonteDados(BindingSource ClientesLista)
@@ -203,11 +201,3 @@ namespace AppEngSoft.Views
     }
   }
 }
-
-/*
- if (instancia == null || instancia.IsDisposed)
-      {
-        instancia = new();
-      }
-      return instancia;
- */

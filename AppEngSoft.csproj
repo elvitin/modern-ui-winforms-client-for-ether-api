@@ -27,17 +27,19 @@
 
   <ItemGroup>
     <Folder Include="CustomControls\" />
+    <Folder Include="API\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Bunifu.Utils" Version="1.0.6" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.10" />
     <PackageReference Include="MySql.Data" Version="8.0.30" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="EtherAPI">
-      <HintPath>..\ProjetoEngenhariaIII Final\ProjetoEngenhariaIII\ProjetoEngenhariaIII\bin\Release\net6.0\EtherAPI.dll</HintPath>
+      <HintPath>..\..\..\Desktop\AppUI\API\EtherAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
 

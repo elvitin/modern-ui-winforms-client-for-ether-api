@@ -14,17 +14,38 @@ namespace AppEngSoft.Repositorios.Produto
 
     public void Adicionar(UnidadeModel unidadeModel)
     {
-      throw new NotImplementedException();
+      UnidadeControl unidadeControl = new();
+      unidadeModel.Id = 0;
+      string unidadeSerializada = JsonConvert.SerializeObject(
+        unidadeModel,
+        Formatting.Indented,
+        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
+      );
+      bool operacao = unidadeControl.Salvar(unidadeSerializada);
+      if (!operacao)
+        throw new Exception("(Adição Unidade)\nErro no banco, não especificado pela API.");
     }
 
     public void Deletar(uint unidadeId)
     {
-      throw new NotImplementedException();
+      UnidadeControl unidadeControl = new();
+      bool operacao = unidadeControl.Excluir(checked((int)unidadeId));
+      if (!operacao)
+        throw new Exception(
+          $"Falha ao deletar unidade ID {unidadeId}\nErro no banco, não especificado pela API");
     }
 
     public void Editar(UnidadeModel unidadeModel)
     {
-      throw new NotImplementedException();
+      UnidadeControl unidadeControl = new();
+      string unidadeStringify = JsonConvert.SerializeObject(
+        unidadeModel,
+        Formatting.Indented,
+        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
+      );
+      bool operacao = unidadeControl.Salvar(unidadeStringify);
+      if (!operacao)
+        throw new Exception($"(Edição Unidade)\nErro no banco ao editar unidade ID {unidadeModel.Id}.\nErro não especificado pela API.");
     }
 
     public IEnumerable<UnidadeModel> ObterPorValor(string valor)

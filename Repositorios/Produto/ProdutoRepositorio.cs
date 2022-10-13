@@ -7,7 +7,6 @@ namespace AppEngSoft.Repositorios.Produto
 {
   internal class ProdutoRepositorio : RepositorioBase, IProdutoRepositorio
   {
-
     public ProdutoRepositorio(string stringConexao)
     {
       base.stringConexao = stringConexao;
@@ -15,7 +14,16 @@ namespace AppEngSoft.Repositorios.Produto
 
     public void Adicionar(ProdutoModel produtoModel)
     {
-      throw new NotImplementedException();
+      ProdutoControl produtoControl = new();
+      produtoModel.Id = 0;
+      string produtoSerializado = JsonConvert.SerializeObject(
+        produtoModel,
+        Formatting.Indented,
+        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
+      );
+      bool operacao = produtoControl.Salvar(produtoSerializado);
+      if (!operacao)
+        throw new Exception("(Adição Produto)\nErro no banco, não especificado pela API.");
     }
 
     public void Deletar(uint id)
@@ -31,7 +39,17 @@ namespace AppEngSoft.Repositorios.Produto
 
     public void Editar(ProdutoModel produtoModel)
     {
-      throw new NotImplementedException();
+      ProdutoControl produtoControl = new();
+
+      string produtoStringify = JsonConvert.SerializeObject(
+        produtoModel,
+        Formatting.Indented,
+        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }
+      );
+
+      bool operacao = produtoControl.Salvar(produtoStringify);
+      if (!operacao)
+        throw new Exception("(Edição)\nErro no banco ao editar produto, não especificado pela API.");
     }
 
     public IEnumerable<ProdutoModel> ObterPorValor(string valor)
